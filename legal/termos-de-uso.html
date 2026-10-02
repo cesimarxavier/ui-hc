@@ -1,0 +1,202 @@
+<!doctype html><html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Termos de uso — Hora de Correr</title>
+  <meta name="description" content="Condições para acessar a plataforma, fazer inscrições, pagamentos e utilizar os serviços do Hora de Correr.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config={
+      theme:{
+        extend:{
+          colors:{hc:{orange:'#E96F2B',orangeStrong:'#F56F18',orangeSoft:'#FFF1E8',ink:'#171717',weak:'#F7F7F7',line:'#E6E6E6'}},
+          fontFamily:{sans:['Inter','system-ui','sans-serif']}
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
+  <link rel="stylesheet" href="../assets/hc-ui.css">
+</head>
+<body class="font-sans text-hc-ink bg-white">
+<header class="sticky top-0 z-50 bg-white/95 backdrop-blur-xl border-b border-hc-line">
+  <nav aria-label="Navegação principal" class="px-5 sm:px-8 lg:px-11 py-4 lg:py-5 flex items-center gap-6">
+    <a href="../index.html" class="focus-ring rounded-md shrink-0" aria-label="Hora de Correr, página inicial">
+      <img src="../assets/logo-header.png" alt="Hora de Correr" class="w-[146px] sm:w-[156px] h-auto">
+    </a>
+
+    <div class="flex-1"></div>
+
+    <div class="hidden md:flex items-center gap-4" role="list">
+      <a href="../index.html#inscricoes" class="hc-header-link px-2.5 py-1.5 rounded-[10px] inline-flex items-center gap-1.5 text-sm font-medium text-neutral-600" role="listitem">
+        <i data-lucide="ticket" class="w-5 h-5 hc-icon" aria-hidden="true"></i>
+        <span>Minhas Inscrições</span>
+      </a>
+
+      <a href="../index.html#eventos" class="hc-header-link px-2.5 py-1.5 rounded-[10px] inline-flex items-center gap-1.5 text-sm font-medium text-neutral-600" role="listitem">
+        <i data-lucide="calendar-days" class="w-5 h-5 hc-icon" aria-hidden="true"></i>
+        <span>Meus eventos</span>
+      </a>
+
+      <div class="relative ml-1">
+        <button id="profileMenuButton" type="button" class="focus-ring pl-1 pr-2 py-1 bg-white rounded-full border border-hc-line inline-flex items-center gap-1.5" aria-haspopup="menu" aria-expanded="false" aria-label="Abrir menu da conta">
+          <span class="w-8 h-8 rounded-full bg-neutral-200 grid place-items-center overflow-hidden">
+            <i data-lucide="circle-user-round" class="w-7 h-7 text-neutral-400" aria-hidden="true"></i>
+          </span>
+          <i data-lucide="chevron-down" class="w-5 h-5 hc-icon" aria-hidden="true"></i>
+        </button>
+        <div id="profileMenu" role="menu" class="hidden absolute right-0 mt-2 w-48 rounded-xl border border-hc-line bg-white p-1.5 shadow-[0_12px_32px_rgba(0,0,0,.08)]">
+          <a role="menuitem" href="#" class="block rounded-lg px-3 py-2.5 text-sm hover:bg-hc-weak">Minha conta</a>
+          <a role="menuitem" href="../ajuda/index.html" class="block rounded-lg px-3 py-2.5 text-sm hover:bg-hc-weak">Central de ajuda</a>
+        </div>
+      </div>
+    </div>
+
+    <button id="mobileMenuButton" type="button" class="md:hidden focus-ring w-11 h-11 rounded-full border border-hc-line grid place-items-center" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobileMenu">
+      <i data-lucide="menu" class="w-5 h-5 hc-icon" aria-hidden="true"></i>
+    </button>
+  </nav>
+
+  <div id="mobileMenu" class="hidden md:hidden border-t border-hc-line bg-white px-5 py-3">
+    <nav aria-label="Navegação mobile" class="grid">
+      <a href="../index.html#inscricoes" class="py-3 flex items-center gap-3 text-sm font-medium"><i data-lucide="ticket" class="w-5 h-5 hc-icon"></i>Minhas Inscrições</a>
+      <a href="../index.html#eventos" class="py-3 flex items-center gap-3 text-sm font-medium"><i data-lucide="calendar-days" class="w-5 h-5 hc-icon"></i>Meus eventos</a>
+      <a href="../ajuda/index.html" class="py-3 flex items-center gap-3 text-sm font-medium"><i data-lucide="circle-help" class="w-5 h-5 hc-icon"></i>Central de ajuda</a>
+    </nav>
+  </div>
+</header>
+<main>
+  <section class="px-5 sm:px-8 bg-[linear-gradient(180deg,#fff_0%,#fbfbfa_100%)]">
+    <div class="mx-auto max-w-[1216px] py-14 sm:py-16">
+      <nav aria-label="Breadcrumb" class="type-small text-neutral-500 flex flex-wrap items-center gap-2"><a href="../index.html">Início</a><i data-lucide="chevron-right" class="w-3.5 h-3.5 hc-icon"></i><a href="index.html">Legal</a><i data-lucide="chevron-right" class="w-3.5 h-3.5 hc-icon"></i><span>Termos de uso</span></nav>
+      <div class="mt-9 max-w-[900px]"><div class="inline-flex items-center gap-2 rounded-[9px] bg-white border border-black/[.04] px-2.5 py-1 type-small text-neutral-600"><i data-lucide="file-check-2" class="w-3.5 h-3.5 hc-icon"></i>Para atletas</div><h1 class="type-page mt-4 font-medium">Termos e Condições de Uso da Plataforma Hora de Correr</h1><div class="max-w-[820px]"><p class="type-body mt-4 text-neutral-600">Estes Termos de Uso (&quot;Termos&quot;) regem o acesso e a utilização da plataforma <strong>Hora de Correr</strong> (&quot;Plataforma&quot;), de propriedade da [Razão Social da Hora de Correr], inscrita no CNPJ sob o nº [Inserir CNPJ], com sede em [Inserir Endereço Completo].</p><p class="type-body mt-4 text-neutral-600">Ao acessar, navegar ou utilizar nossa Plataforma para se inscrever em eventos esportivos, você (&quot;Usuário&quot; ou &quot;Atleta&quot;) declara ter lido, compreendido e concordado integralmente com as condições aqui estabelecidas, bem como com a nossa Política de Privacidade. Caso não concorde com qualquer disposição destes Termos, solicitamos que não utilize nossos serviços.</p></div></div>
+    </div>
+  </section>
+  <section class="px-5 sm:px-8">
+    <div class="mx-auto max-w-[1216px] py-12 sm:py-14 grid lg:grid-cols-[240px_minmax(0,760px)_1fr] gap-10 xl:gap-14 items-start">
+      <aside class="hidden lg:block sticky top-[110px] max-h-[calc(100vh-130px)] overflow-auto pr-2"><div class="type-small font-semibold">Neste documento</div><nav class="mt-4 grid gap-3" aria-label="Índice do documento"><a href="#1-o-papel-da-hora-de-correr" class="toc-link type-small" data-toc-link="1-o-papel-da-hora-de-correr"><span>1. O Papel da Hora de Correr</span></a><a href="#2-cadastro-de-usuario-e-seguranca" class="toc-link type-small" data-toc-link="2-cadastro-de-usuario-e-seguranca"><span>2. Cadastro de Usuário e Segurança</span></a><a href="#3-pagamentos-e-taxa-de-servico-tarifa-da-plataforma" class="toc-link type-small" data-toc-link="3-pagamentos-e-taxa-de-servico-tarifa-da-plataforma"><span>3. Pagamentos e Taxa de Serviço (Tarifa da Plataforma)</span></a><a href="#4-cancelamentos-reembolsos-e-transferencias" class="toc-link type-small" data-toc-link="4-cancelamentos-reembolsos-e-transferencias"><span>4. Cancelamentos, Reembolsos e Transferências</span></a><a href="#5-declaracao-de-saude-e-aptidao-fisica" class="toc-link type-small" data-toc-link="5-declaracao-de-saude-e-aptidao-fisica"><span>5. Declaração de Saúde e Aptidão Física</span></a><a href="#6-propriedade-intelectual" class="toc-link type-small" data-toc-link="6-propriedade-intelectual"><span>6. Propriedade Intelectual</span></a><a href="#7-modificacoes-nos-termos" class="toc-link type-small" data-toc-link="7-modificacoes-nos-termos"><span>7. Modificações nos Termos</span></a><a href="#8-foro-e-legislacao-aplicavel" class="toc-link type-small" data-toc-link="8-foro-e-legislacao-aplicavel"><span>8. Foro e Legislação Aplicável</span></a></nav><div class="mt-7 pt-5 border-t border-hc-line"><a href="index.html" class="inline-flex items-center gap-2 type-small font-medium"><i data-lucide="arrow-left" class="w-4 h-4 hc-icon"></i>Todos os documentos</a></div></aside>
+      <article class="legal-copy min-w-0"><h1 id="termos-e-condicoes-de-uso-da-plataforma-hora-de-correr">Termos e Condições de Uso da Plataforma Hora de Correr</h1>
+<p>Estes Termos de Uso (&quot;Termos&quot;) regem o acesso e a utilização da plataforma <strong>Hora de Correr</strong> (&quot;Plataforma&quot;), de propriedade da [Razão Social da Hora de Correr], inscrita no CNPJ sob o nº [Inserir CNPJ], com sede em [Inserir Endereço Completo].</p>
+<p>Ao acessar, navegar ou utilizar nossa Plataforma para se inscrever em eventos esportivos, você (&quot;Usuário&quot; ou &quot;Atleta&quot;) declara ter lido, compreendido e concordado integralmente com as condições aqui estabelecidas, bem como com a nossa Política de Privacidade. Caso não concorde com qualquer disposição destes Termos, solicitamos que não utilize nossos serviços.</p>
+<h2 id="1-o-papel-da-hora-de-correr" data-toc-heading>1. O Papel da Hora de Correr</h2>
+<p><strong>1.1. Intermediação de Inscrições:</strong> A Hora de Correr atua exclusivamente como prestadora de serviços de tecnologia, fornecendo uma plataforma online para facilitar a intermediação da venda de ingressos (inscrições) entre empresas Organizadoras de eventos esportivos (&quot;Organizadores&quot;) e os Usuários finais.</p>
+<p><strong>1.2. Isenção de Responsabilidade sobre os Eventos:</strong> A Hora de Correr <strong>não é a criadora, organizadora, produtora ou responsável direta por nenhum dos eventos listados na Plataforma</strong>. Toda a responsabilidade sobre a execução do evento (incluindo, mas não se limitando a: segurança, estrutura, cumprimento de horários, entrega de kits, premiação, alvarás, autorizações governamentais e eventuais acidentes ou danos) é única e exclusiva do Organizador do respectivo evento.</p>
+<p><strong>1.3. Informações do Evento:</strong> Todo o conteúdo descritivo dos eventos (regulamentos, datas, percursos, valores, políticas específicas de meia-entrada) é inserido, gerenciado e de responsabilidade exclusiva dos Organizadores. A Hora de Correr não garante a exatidão ou integridade dessas informações.</p>
+<h2 id="2-cadastro-de-usuario-e-seguranca" data-toc-heading>2. Cadastro de Usuário e Segurança</h2>
+<p><strong>2.1. Veracidade dos Dados:</strong> Para realizar inscrições, o Usuário deverá criar uma conta na Plataforma. O Usuário compromete-se a fornecer informações verdadeiras, exatas, atuais e completas sobre si mesmo. A Hora de Correr não se responsabiliza por problemas decorrentes do fornecimento de dados incorretos, como erros no envio de kits ou problemas de identificação no dia do evento.</p>
+<p><strong>2.2. Confidencialidade da Conta:</strong> O Usuário é o único responsável por manter a confidencialidade do seu login e senha. Qualquer atividade realizada através da sua conta é de sua inteira responsabilidade.</p>
+<p><strong>2.3. Restrição de Idade:</strong> A inscrição em eventos pode estar sujeita a restrições de idade impostas pelo Regulamento de cada Organizador. É responsabilidade do Usuário verificar e comprovar sua aptidão etária conforme o evento escolhido.</p>
+<h2 id="3-pagamentos-e-taxa-de-servico-tarifa-da-plataforma" data-toc-heading>3. Pagamentos e Taxa de Serviço (Tarifa da Plataforma)</h2>
+<p><strong>3.1. Processamento de Pagamentos:</strong> Os pagamentos realizados na Plataforma são processados por empresas terceirizadas (gateways de pagamento). A Hora de Correr não armazena dados completos de cartão de crédito.</p>
+<p><strong>3.2. Taxa de Serviço (Conveniência):</strong> A Hora de Correr poderá cobrar uma &quot;Taxa de Serviço&quot; (ou Taxa de Conveniência) pelas inscrições realizadas através da Plataforma. Essa taxa remunera a infraestrutura tecnológica, o suporte, a segurança da transação e a comodidade oferecida ao Usuário.</p>
+<ul>
+<li><strong>3.2.1.</strong> O valor da Taxa de Serviço, quando aplicável, será sempre exibido de forma clara e destacada antes da finalização da compra.</li>
+</ul>
+<p><strong>3.3. Inadimplência:</strong> Inscrições realizadas via boleto bancário ou PIX não pagas até a data de vencimento serão automaticamente canceladas, não garantindo a vaga do Usuário no evento.</p>
+<h2 id="4-cancelamentos-reembolsos-e-transferencias" data-toc-heading>4. Cancelamentos, Reembolsos e Transferências</h2>
+<p><strong>4.1. Direito de Arrependimento (Art. 49 do CDC):</strong> Em conformidade com o Código de Defesa do Consumidor, o Usuário tem o direito de solicitar o cancelamento da sua compra em até <strong>7 (sete) dias corridos</strong>, contados a partir da data de efetivação do pagamento.</p>
+<ul>
+<li><strong>4.1.1.</strong> Para que o reembolso da Taxa de Serviço seja realizado, a solicitação deve ocorrer estritamente dentro deste prazo legal.</li>
+<li><strong>4.1.2. Exceção:</strong> Caso o evento ocorra <em>antes</em> do término do prazo de 7 dias, a solicitação de cancelamento deverá ser feita até, no máximo, <strong>48 (quarenta e oito) horas antes</strong> do início da entrega dos kits ou do evento. Não haverá reembolso para solicitações feitas após a realização do evento.</li>
+</ul>
+<p><strong>4.2. Cancelamento fora do Prazo de 7 Dias:</strong> As regras para cancelamento após o prazo de 7 dias variam e são definidas exclusivamente pelo Regulamento do Organizador do evento. A Hora de Correr apenas repassa as solicitações aos Organizadores e executa o estorno caso seja autorizado por eles.</p>
+<ul>
+<li><strong>4.2.1.</strong> Em casos de cancelamento fora do prazo de arrependimento (quando autorizado pelo Organizador) ou de estornos devido ao cancelamento do evento, a <strong>Taxa de Serviço não será reembolsada</strong>, pois o serviço de intermediação e conveniência tecnológica já foi integralmente prestado.</li>
+</ul>
+<p><strong>4.3. Adiamento ou Cancelamento do Evento:</strong> A responsabilidade por adiar, remarcar ou cancelar um evento é exclusiva do Organizador. Caso isso ocorra, o Organizador definirá a política de repasse, transferência ou devolução dos valores da inscrição (exceto a Taxa de Serviço, conforme item 4.2.1).</p>
+<p><strong>4.4. Transferência de Titularidade:</strong> A possibilidade de transferir uma inscrição para outro Atleta depende das regras estipuladas no Regulamento de cada evento pelo seu Organizador. A Plataforma poderá oferecer ferramentas para facilitar essa troca, mediante cobrança de taxa administrativa, caso o Organizador autorize.</p>
+<h2 id="5-declaracao-de-saude-e-aptidao-fisica" data-toc-heading>5. Declaração de Saúde e Aptidão Física</h2>
+<p><strong>5.1. Risco Inerente:</strong> O Usuário reconhece que eventos esportivos, especialmente corridas, envolvem riscos físicos e à saúde. Ao realizar a inscrição através da Plataforma, o Usuário atesta que se encontra em perfeitas condições de saúde física e mental para participar do evento selecionado.</p>
+<p><strong>5.2. Termo Específico:</strong> Além desta declaração geral, o Usuário concorda em ler e aceitar o Termo de Responsabilidade Médica específico (Waiver), que poderá ser exigido de forma digital no ato da inscrição ou de forma física durante a retirada de kits pelo Organizador.</p>
+<h2 id="6-propriedade-intelectual" data-toc-heading>6. Propriedade Intelectual</h2>
+<p>Todo o conteúdo da Plataforma (textos, logotipos, layout, software, códigos) é de propriedade exclusiva da Hora de Correr ou de seus parceiros, sendo protegido pelas leis de direitos autorais e propriedade intelectual brasileiras. O uso não autorizado é estritamente proibido.</p>
+<h2 id="7-modificacoes-nos-termos" data-toc-heading>7. Modificações nos Termos</h2>
+<p>A Hora de Correr reserva-se o direito de alterar estes Termos a qualquer momento. Alterações significativas serão comunicadas aos Usuários por e-mail ou por meio de aviso em destaque na Plataforma. O uso contínuo da Plataforma após as modificações constituirá a aceitação dos novos Termos.</p>
+<h2 id="8-foro-e-legislacao-aplicavel" data-toc-heading>8. Foro e Legislação Aplicável</h2>
+<p>Estes Termos são regidos pelas leis da República Frederativa do Brasil. Para dirimir quaisquer controvérsias oriundas destes Termos, fica eleito o Foro da Comarca de Natal, Rio Grande do Norte, com renúncia expressa a qualquer outro, por mais privilegiado que seja.</p>
+</article>
+      <aside class="hidden xl:block sticky top-[110px]"><div class="rounded-[12px] border border-hc-line p-4 bg-[#FAFAFA]"><i data-lucide="circle-help" class="w-5 h-5 hc-icon"></i><h2 class="mt-4 font-semibold">Precisa de ajuda?</h2><p class="type-small mt-2 text-neutral-600">Dúvidas sobre uma inscrição ou evento podem ser tratadas na Central de ajuda.</p><a href="../ajuda/index.html" class="mt-4 inline-flex items-center gap-1.5 type-small font-semibold">Central de ajuda <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 hc-icon"></i></a></div></aside>
+    </div>
+  </section>
+  <section class="px-5 sm:px-8 border-t border-hc-line"><div class="mx-auto max-w-[1216px] py-12 sm:py-14"><div class="flex items-end justify-between"><div><div class="type-small text-neutral-500">Legal</div><h2 class="type-section mt-2 font-medium">Documentos relacionados</h2></div><a href="index.html" class="hidden sm:inline-flex items-center gap-2 type-small font-semibold">Ver todos <i data-lucide="arrow-up-right" class="w-4 h-4 hc-icon"></i></a></div><div class="mt-6 grid md:grid-cols-3 gap-3"><a href="politica-de-reembolso.html" class="hc-card rounded-[12px] border border-hc-line p-4"><i data-lucide="rotate-ccw" class="w-4 h-4 hc-icon"></i><div class="mt-4 font-semibold">Cancelamento e reembolso</div><p class="type-small mt-1.5 text-neutral-600">Regras de cancelamento, direito de arrependimento, estornos e prazos por forma de pagamento.</p></a><a href="responsabilidade-medica.html" class="hc-card rounded-[12px] border border-hc-line p-4"><i data-lucide="heart-pulse" class="w-4 h-4 hc-icon"></i><div class="mt-4 font-semibold">Responsabilidade médica</div><p class="type-small mt-1.5 text-neutral-600">Declarações sobre aptidão física, riscos da atividade esportiva, segurança e uso de imagem.</p></a><a href="politica-de-privacidade.html" class="hc-card rounded-[12px] border border-hc-line p-4"><i data-lucide="shield-check" class="w-4 h-4 hc-icon"></i><div class="mt-4 font-semibold">Privacidade e dados</div><p class="type-small mt-1.5 text-neutral-600">Como dados pessoais são coletados, utilizados, compartilhados e protegidos.</p></a></div></div></section>
+</main>
+<footer class="hc-footer bg-white overflow-hidden">
+  <div class="relative mx-auto max-w-[1540px] px-5 sm:px-8 lg:px-0 pt-[72px] sm:pt-[88px] pb-[42px]">
+    <div class="relative z-10">
+      <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-9">
+        <h2 class="text-[clamp(2.45rem,2.9vw,3.55rem)] leading-[1.08] tracking-[-.04em] font-medium">
+          Vamos começar<br>a criar, juntos
+        </h2>
+        <a href="../eventos/index.html" class="mt-2 inline-flex self-start items-center gap-2 text-[clamp(1.15rem,1.15vw,1.45rem)] leading-8 font-semibold underline underline-offset-[5px] hover:text-hc-orangeStrong transition-colors">
+          Mais eventos
+          <i data-lucide="arrow-up-right" class="w-5 h-5 hc-icon" aria-hidden="true"></i>
+        </a>
+      </div>
+
+      <div class="mt-[46px] h-px bg-hc-line"></div>
+
+      <div class="relative pt-[48px] min-h-[316px]">
+        <div aria-hidden="true" class="hc-footer-word-approved">Correr</div>
+
+        <div class="relative z-10">
+          <img src="../assets/logo-header.png" alt="Hora de Correr" class="w-[218px] h-auto">
+          <p class="mt-4 type-meta font-medium text-neutral-600">
+            Ferramentas mais inteligentes para quem faz corridas.
+          </p>
+
+          <div class="mt-[54px] flex flex-wrap items-start gap-x-[82px] sm:gap-x-[100px] gap-y-10 type-small">
+            <nav aria-labelledby="footer-recursos" class="grid gap-3">
+              <h3 id="footer-recursos" class="font-medium text-neutral-400">Recursos</h3>
+              <a href="#" class="font-medium hover:underline">Blog</a>
+              <a href="../eventos/index.html" class="font-medium hover:underline">Eventos</a>
+              <a href="#" class="font-medium hover:underline">Produtos</a>
+            </nav>
+
+            <nav aria-labelledby="footer-empresa" class="grid gap-3">
+              <h3 id="footer-empresa" class="font-medium text-neutral-400">Empresa</h3>
+              <a href="../sobre/index.html" class="font-medium hover:underline">Sobre nós</a>
+              <a href="#" class="font-medium hover:underline">Carreiras</a>
+              <a href="../ajuda/index.html#contato" class="font-medium hover:underline">Contato</a>
+            </nav>
+
+            <nav aria-labelledby="footer-legal" class="grid gap-3">
+              <h3 id="footer-legal" class="font-medium text-neutral-400">Legal</h3>
+              <a href="../legal/termos-de-uso.html" class="font-medium hover:underline">Termos & condições</a>
+              <a href="../legal/politica-de-privacidade.html" class="font-medium hover:underline">Políticas de privacidade</a>
+              <a href="../legal/cookies.html" class="font-medium hover:underline">Preferências de Cookies</a>
+            </nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="h-px bg-hc-line"></div>
+      <p class="pt-[36px] type-small font-medium text-neutral-400">
+        2026 Hora de Correr © Todos os direitos reservados.
+      </p>
+    </div>
+  </div>
+</footer>
+<script src="../assets/hc-shell.js"></script>
+<script>
+const headings=[...document.querySelectorAll('[data-toc-heading]')];
+const links=[...document.querySelectorAll('[data-toc-link]')];
+if('IntersectionObserver'in window&&headings.length){
+  const observer=new IntersectionObserver(entries=>{
+    const v=entries.filter(e=>e.isIntersecting).sort((a,b)=>a.boundingClientRect.top-b.boundingClientRect.top)[0];
+    if(!v)return; links.forEach(a=>a.setAttribute('aria-current',String(a.dataset.tocLink===v.target.id)));
+  },{rootMargin:'-20% 0px -68% 0px',threshold:0});
+  headings.forEach(h=>observer.observe(h));
+}
+const save=document.getElementById('saveCookies');
+if(save){
+  const ids=['cookieAnalytics','cookieFunctional','cookieMarketing'];
+  const saved=JSON.parse(localStorage.getItem('hc-cookie-preferences')||'null');
+  if(saved)ids.forEach(id=>{const el=document.getElementById(id);if(el)el.checked=!!saved[id]});
+  save.addEventListener('click',()=>{const prefs={};ids.forEach(id=>prefs[id]=document.getElementById(id).checked);localStorage.setItem('hc-cookie-preferences',JSON.stringify(prefs));document.getElementById('cookieSaved').classList.remove('hidden')});
+  document.getElementById('rejectOptional').addEventListener('click',()=>{ids.forEach(id=>document.getElementById(id).checked=false);save.click()});
+}
+</script>
+</body></html>

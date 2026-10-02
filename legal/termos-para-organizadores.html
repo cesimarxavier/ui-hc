@@ -1,0 +1,239 @@
+<!doctype html><html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Termos para organizadores — Hora de Correr</title>
+  <meta name="description" content="Condições da parceria, obrigações, taxas, repasses, proteção de dados e responsabilidades dos organizadores.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config={
+      theme:{
+        extend:{
+          colors:{hc:{orange:'#E96F2B',orangeStrong:'#F56F18',orangeSoft:'#FFF1E8',ink:'#171717',weak:'#F7F7F7',line:'#E6E6E6'}},
+          fontFamily:{sans:['Inter','system-ui','sans-serif']}
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
+  <link rel="stylesheet" href="../assets/hc-ui.css">
+</head>
+<body class="font-sans text-hc-ink bg-white">
+<header class="sticky top-0 z-50 bg-white/95 backdrop-blur-xl border-b border-hc-line">
+  <nav aria-label="Navegação principal" class="px-5 sm:px-8 lg:px-11 py-4 lg:py-5 flex items-center gap-6">
+    <a href="../index.html" class="focus-ring rounded-md shrink-0" aria-label="Hora de Correr, página inicial">
+      <img src="../assets/logo-header.png" alt="Hora de Correr" class="w-[146px] sm:w-[156px] h-auto">
+    </a>
+
+    <div class="flex-1"></div>
+
+    <div class="hidden md:flex items-center gap-4" role="list">
+      <a href="../index.html#inscricoes" class="hc-header-link px-2.5 py-1.5 rounded-[10px] inline-flex items-center gap-1.5 text-sm font-medium text-neutral-600" role="listitem">
+        <i data-lucide="ticket" class="w-5 h-5 hc-icon" aria-hidden="true"></i>
+        <span>Minhas Inscrições</span>
+      </a>
+
+      <a href="../index.html#eventos" class="hc-header-link px-2.5 py-1.5 rounded-[10px] inline-flex items-center gap-1.5 text-sm font-medium text-neutral-600" role="listitem">
+        <i data-lucide="calendar-days" class="w-5 h-5 hc-icon" aria-hidden="true"></i>
+        <span>Meus eventos</span>
+      </a>
+
+      <div class="relative ml-1">
+        <button id="profileMenuButton" type="button" class="focus-ring pl-1 pr-2 py-1 bg-white rounded-full border border-hc-line inline-flex items-center gap-1.5" aria-haspopup="menu" aria-expanded="false" aria-label="Abrir menu da conta">
+          <span class="w-8 h-8 rounded-full bg-neutral-200 grid place-items-center overflow-hidden">
+            <i data-lucide="circle-user-round" class="w-7 h-7 text-neutral-400" aria-hidden="true"></i>
+          </span>
+          <i data-lucide="chevron-down" class="w-5 h-5 hc-icon" aria-hidden="true"></i>
+        </button>
+        <div id="profileMenu" role="menu" class="hidden absolute right-0 mt-2 w-48 rounded-xl border border-hc-line bg-white p-1.5 shadow-[0_12px_32px_rgba(0,0,0,.08)]">
+          <a role="menuitem" href="#" class="block rounded-lg px-3 py-2.5 text-sm hover:bg-hc-weak">Minha conta</a>
+          <a role="menuitem" href="../ajuda/index.html" class="block rounded-lg px-3 py-2.5 text-sm hover:bg-hc-weak">Central de ajuda</a>
+        </div>
+      </div>
+    </div>
+
+    <button id="mobileMenuButton" type="button" class="md:hidden focus-ring w-11 h-11 rounded-full border border-hc-line grid place-items-center" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobileMenu">
+      <i data-lucide="menu" class="w-5 h-5 hc-icon" aria-hidden="true"></i>
+    </button>
+  </nav>
+
+  <div id="mobileMenu" class="hidden md:hidden border-t border-hc-line bg-white px-5 py-3">
+    <nav aria-label="Navegação mobile" class="grid">
+      <a href="../index.html#inscricoes" class="py-3 flex items-center gap-3 text-sm font-medium"><i data-lucide="ticket" class="w-5 h-5 hc-icon"></i>Minhas Inscrições</a>
+      <a href="../index.html#eventos" class="py-3 flex items-center gap-3 text-sm font-medium"><i data-lucide="calendar-days" class="w-5 h-5 hc-icon"></i>Meus eventos</a>
+      <a href="../ajuda/index.html" class="py-3 flex items-center gap-3 text-sm font-medium"><i data-lucide="circle-help" class="w-5 h-5 hc-icon"></i>Central de ajuda</a>
+    </nav>
+  </div>
+</header>
+<main>
+  <section class="px-5 sm:px-8 bg-[linear-gradient(180deg,#fff_0%,#fbfbfa_100%)]">
+    <div class="mx-auto max-w-[1216px] py-14 sm:py-16">
+      <nav aria-label="Breadcrumb" class="type-small text-neutral-500 flex flex-wrap items-center gap-2"><a href="../index.html">Início</a><i data-lucide="chevron-right" class="w-3.5 h-3.5 hc-icon"></i><a href="index.html">Legal</a><i data-lucide="chevron-right" class="w-3.5 h-3.5 hc-icon"></i><span>Termos para organizadores</span></nav>
+      <div class="mt-9 max-w-[900px]"><div class="inline-flex items-center gap-2 rounded-[9px] bg-white border border-black/[.04] px-2.5 py-1 type-small text-neutral-600"><i data-lucide="building-2" class="w-3.5 h-3.5 hc-icon"></i>Para organizadores</div><h1 class="type-page mt-4 font-medium">Termos e Condições Gerais para Organizadores e Produtores - Plataforma Hora de Correr</h1><div class="max-w-[820px]"><p class="type-body mt-4 text-neutral-600">Este documento estabelece os Termos e Condições Gerais (&quot;Contrato&quot; ou &quot;Termos&quot;) que regem a parceria entre a <strong>Hora de Correr</strong>, plataforma tecnológica de gestão de inscrições de propriedade da [Razão Social da Hora de Correr], inscrita no CNPJ sob o nº [Inserir CNPJ], com sede em Natal, Rio Grande do Norte, doravante denominada simplesmente <strong>Hora de Correr</strong>, e a pessoa física ou jurídica devidamente cadastrada na plataforma como organizadora, produtora, realizadora ou promotora de eventos esportivos, doravante denominada simplesmente <strong>ORGANIZADOR</strong>.</p><p class="type-body mt-4 text-neutral-600">Ao criar uma conta de Organizador, cadastrar ou disponibilizar qualquer evento esportivo ou corrida na plataforma Hora de Correr, o ORGANIZADOR declara ter lido, compreendido e aceitado, sem reservas, todas as cláusulas e condições previstas neste instrumento.</p></div></div>
+    </div>
+  </section>
+  <section class="px-5 sm:px-8">
+    <div class="mx-auto max-w-[1216px] py-12 sm:py-14 grid lg:grid-cols-[240px_minmax(0,760px)_1fr] gap-10 xl:gap-14 items-start">
+      <aside class="hidden lg:block sticky top-[110px] max-h-[calc(100vh-130px)] overflow-auto pr-2"><div class="type-small font-semibold">Neste documento</div><nav class="mt-4 grid gap-3" aria-label="Índice do documento"><a href="#1-objeto-dos-servicos" class="toc-link type-small" data-toc-link="1-objeto-dos-servicos"><span>1. Objeto dos Serviços</span></a><a href="#2-cadastro-e-acesso-a-plataforma" class="toc-link type-small" data-toc-link="2-cadastro-e-acesso-a-plataforma"><span>2. Cadastro e Acesso à Plataforma</span></a><a href="#3-obrigacoes-do-organizador" class="toc-link type-small" data-toc-link="3-obrigacoes-do-organizador"><span>3. Obrigações do Organizador</span></a><a href="#4-obrigacoes-da-hora-de-correr" class="toc-link type-small" data-toc-link="4-obrigacoes-da-hora-de-correr"><span>4. Obrigações da Hora de Correr</span></a><a href="#5-remuneracao-da-plataforma-e-taxas-de-servico" class="toc-link type-small" data-toc-link="5-remuneracao-da-plataforma-e-taxas-de-servico"><span>5. Remuneração da Plataforma e Taxas de Serviço</span></a><a href="#6-repasses-financeiros-e-prazos" class="toc-link type-small" data-toc-link="6-repasses-financeiros-e-prazos"><span>6. Repasses Financeiros e Prazos</span></a><a href="#7-modificacoes-cancelamento-do-evento-e-reembolsos" class="toc-link type-small" data-toc-link="7-modificacoes-cancelamento-do-evento-e-reembolsos"><span>7. Modificações, Cancelamento do Evento e Reembolsos</span></a><a href="#8-chargebacks-contestacoes-e-fraudes" class="toc-link type-small" data-toc-link="8-chargebacks-contestacoes-e-fraudes"><span>8. Chargebacks, Contestações e Fraudes</span></a><a href="#9-protecao-de-dados-e-lei-geral-de-protecao-de-dados-lgpd" class="toc-link type-small" data-toc-link="9-protecao-de-dados-e-lei-geral-de-protecao-de-dados-lgpd"><span>9. Proteção de Dados e Lei Geral de Proteção de Dados (LGPD)</span></a><a href="#10-indenidade-e-responsabilidade-civil" class="toc-link type-small" data-toc-link="10-indenidade-e-responsabilidade-civil"><span>10. Indenidade e Responsabilidade Civil</span></a><a href="#11-modificacoes-nos-termos-b2b" class="toc-link type-small" data-toc-link="11-modificacoes-nos-termos-b2b"><span>11. Modificações nos Termos B2B</span></a><a href="#12-legislacao-aplicavel-e-foro" class="toc-link type-small" data-toc-link="12-legislacao-aplicavel-e-foro"><span>12. Legislação Aplicável e Foro</span></a></nav><div class="mt-7 pt-5 border-t border-hc-line"><a href="index.html" class="inline-flex items-center gap-2 type-small font-medium"><i data-lucide="arrow-left" class="w-4 h-4 hc-icon"></i>Todos os documentos</a></div></aside>
+      <article class="legal-copy min-w-0"><h1 id="termos-e-condicoes-gerais-para-organizadores-e-produtores-plataforma-hora-de-correr">Termos e Condições Gerais para Organizadores e Produtores - Plataforma Hora de Correr</h1>
+<p>Este documento estabelece os Termos e Condições Gerais (&quot;Contrato&quot; ou &quot;Termos&quot;) que regem a parceria entre a <strong>Hora de Correr</strong>, plataforma tecnológica de gestão de inscrições de propriedade da [Razão Social da Hora de Correr], inscrita no CNPJ sob o nº [Inserir CNPJ], com sede em Natal, Rio Grande do Norte, doravante denominada simplesmente <strong>Hora de Correr</strong>, e a pessoa física ou jurídica devidamente cadastrada na plataforma como organizadora, produtora, realizadora ou promotora de eventos esportivos, doravante denominada simplesmente <strong>ORGANIZADOR</strong>.</p>
+<p>Ao criar uma conta de Organizador, cadastrar ou disponibilizar qualquer evento esportivo ou corrida na plataforma Hora de Correr, o ORGANIZADOR declara ter lido, compreendido e aceitado, sem reservas, todas as cláusulas e condições previstas neste instrumento.</p>
+<hr />
+<h2 id="1-objeto-dos-servicos" data-toc-heading>1. Objeto dos Serviços</h2>
+<p><strong>1.1. Escopo Tecnológico:</strong> O objeto do presente Contrato consiste na prestação de serviços de tecnologia pela Hora de Correr, por meio da disponibilização de sua Plataforma online (&quot;Plataforma&quot;), visando à intermediação de inscrições, processamento de pagamentos e suporte tecnológico na venda de <em>tickets</em> e inscrições para eventos esportivos, com foco especial em corridas de rua, organizados pelo ORGANIZADOR.</p>
+<p><strong>1.2. Natureza da Relação:</strong> As Partes declaram expressamente que a Hora de Correr atua única e exclusivamente como intermediadora de transações comerciais eletrônicas. A Hora de Correr não possui qualquer vínculo com a organização física, produção, segurança ou execução dos eventos cadastrados na Plataforma.</p>
+<hr />
+<h2 id="2-cadastro-e-acesso-a-plataforma" data-toc-heading>2. Cadastro e Acesso à Plataforma</h2>
+<p><strong>2.1. Criação de Conta:</strong> Para utilizar os serviços, o ORGANIZADOR deverá efetuar um cadastro completo na Plataforma, fornecendo dados válidos, exatos e atualizados, incluindo CNPJ ou CPF, dados bancários de titularidade da mesma pessoa cadastrada e contatos dos responsáveis legais.</p>
+<p><strong>2.2. Confidencialidade e Segurança:</strong> O ORGANIZADOR é o único e exclusivo responsável pela segurança de suas credenciais de acesso (login e senha), bem como por todas as ações executadas em seu painel administrativo, comprometendo-se a notificar a Hora de Correr imediatamente em caso de suspeita de uso não autorizado.</p>
+<hr />
+<h2 id="3-obrigacoes-do-organizador" data-toc-heading>3. Obrigações do Organizador</h2>
+<p>O ORGANIZADOR obriga-se, sob sua exclusiva responsabilidade civil, criminal, trabalhista e administrativa, a:</p>
+<p><strong>3.1. Regularidade Legal:</strong> Obter e manter válidos todos os alvarás, licenças, autorizações governamentais, liberação de vias públicas (junto aos órgãos de trânsito locais), autorizações da Federação Esportiva competente e seguros necessários para a realização integral do evento esportivo.</p>
+<p><strong>3.2. Veracidade das Informações:</strong> Fornecer de forma clara, precisa e atualizada todas as informações sobre o evento na Plataforma, tais como regulamento oficial da prova, percursos, categorias, preços, lotes, horários, local de largada, regras de retirada de kits e políticas específicas de cancelamento.</p>
+<p><strong>3.3. Cumprimento do Regulamento:</strong> Cumprir rigorosamente todas as regras estabelecidas no regulamento do seu evento disponibilizado aos atletas, abstendo-se de realizar alterações substanciais (como alteração drástica de data ou percurso) sem a devida e imediata comunicação aos participantes e à Hora de Correr.</p>
+<p><strong>3.4. Execução Física do Evento:</strong> Garantir a perfeita infraestrutura do evento, incluindo sinalização, postos de hidratação, atendimento médico de emergência (ambulâncias), cronometragem adequada, segurança de percurso, equipe de apoio staff, entrega completa dos kits conforme prometido e premiações.</p>
+<p><strong>3.5. Atendimento ao Cliente (SAC):</strong> Prestar suporte direto aos atletas inscritos no que tange a dúvidas sobre a corrida, logística do evento, falhas técnicas na execução da prova ou problemas na retirada do kit, mantendo canais de atendimento eficientes e visíveis.</p>
+<p><strong>3.6. Emissão de Notas Fiscais aos Atletas:</strong> O ORGANIZADOR é o único responsável pela emissão dos documentos fiscais (Notas Fiscais ou cupons) devidos aos atletas inscritos no valor integral pago pela inscrição. A Hora de Correr emitirá nota fiscal exclusivamente para o ORGANIZADOR referente à taxa de serviço/comissão por ela cobrada.</p>
+<hr />
+<h2 id="4-obrigacoes-da-hora-de-correr" data-toc-heading>4. Obrigações da Hora de Correr</h2>
+<p>A Hora de Correr obriga-se a:</p>
+<p><strong>4.1. Disponibilidade do Sistema:</strong> Envidar os melhores esforços para manter a Plataforma online e operacional para a realização de inscrições por parte dos atletas, ressalvadas as janelas de manutenção preventiva ou falhas técnicas fora do seu controle direto.</p>
+<p><strong>4.2. Processamento e Segurança:</strong> Processar os pagamentos das inscrições (cartão de crédito, PIX e boleto bancário) por meio de integradores e gateways de pagamento homologados, garantindo padrões rígidos de segurança da informação financeira.</p>
+<p><strong>4.3. Relatórios e Transparência:</strong> Disponibilizar no painel administrativo do ORGANIZADOR ferramentas de acompanhamento de vendas, listas de atletas inscritos em tempo real e relatórios financeiros consolidados para fins de prestação de contas.</p>
+<hr />
+<h2 id="5-remuneracao-da-plataforma-e-taxas-de-servico" data-toc-heading>5. Remuneração da Plataforma e Taxas de Serviço</h2>
+<p><strong>5.1. Taxa de Serviço (Conveniência):</strong> Como remuneração pela prestação dos serviços tecnológicos e uso da Plataforma, a Hora de Correr cobrará uma &quot;Taxa de Serviço&quot; sobre cada inscrição comercializada com sucesso.</p>
+<ul>
+<li><strong>5.1.1.</strong> O percentual ou valor fixo da Taxa de Serviço será previamente acordado entre as Partes e formalizado na Proposta Comercial / Anexo de Precificação.</li>
+<li><strong>5.1.2.</strong> Salvo disposição em contrário por escrito, a Taxa de Serviço será adicionada ao valor bruto da inscrição definido pelo ORGANIZADOR e cobrada diretamente do atleta final (<em>checkout</em> com taxa de conveniência).</li>
+</ul>
+<p><strong>5.2. Retenção na Fonte:</strong> A Hora de Correr reterá automaticamente o valor correspondente à sua Taxa de Serviço no momento da liquidação financeira de cada transação, realizando o repasse do valor líquido devido ao ORGANIZADOR.</p>
+<hr />
+<h2 id="6-repasses-financeiros-e-prazos" data-toc-heading>6. Repasses Financeiros e Prazos</h2>
+<p><strong>6.1. Contas de Destino:</strong> Os repasses dos valores líquidos devidos ao ORGANIZADOR serão efetuados eletronicamente na conta bancária indicada e validada no momento do cadastro na Plataforma. A conta deve obrigatoriamente possuir a mesma titularidade (CPF ou CNPJ) do cadastro do ORGANIZADOR.</p>
+<p><strong>6.2. Prazos de Repasse Padrão:</strong> Salvo condições especiais contratadas em anexo comercial, os repasses obedecerão aos seguintes prazos:</p>
+<ul>
+<li><strong>6.2.1. Transações via PIX / Boleto Bancário:</strong> Disponibilização para repasse em até <strong>D+2</strong> (dois dias úteis) após a confirmação de pagamento e compensação pelo sistema bancário.</li>
+<li><strong>6.2.2. Transações via Cartão de Crédito:</strong> Disponibilização para repasse em até <strong>D+30</strong> (trinta dias corridos) contados da data da transação ou de forma antecipada caso haja contratação expressa do serviço de antecipação de recebíveis, sujeita a taxas adicionais do gateway.</li>
+</ul>
+<p><strong>6.3. Retenções de Segurança:</strong> A Hora de Correr reserva-se o direito de reter uma porcentagem de garantia (fundo de reserva) ou adiar os repasses financeiros caso identifique um alto índice de reclamações de atletas, indícios de fraude, chargebacks excessivos ou risco iminente de não realização do evento esportivo.</p>
+<hr />
+<h2 id="7-modificacoes-cancelamento-do-evento-e-reembolsos" data-toc-heading>7. Modificações, Cancelamento do Evento e Reembolsos</h2>
+<p><strong>7.1. Responsabilidade por Reembolsos:</strong> O ORGANIZADOR é o único e exclusivo responsável financeiro e operacional por reembolsar os atletas em casos de cancelamento do evento, adiamento, alteração substancial de percurso/data ou por solicitações fundamentadas no Artigo 49 do Código de Defesa do Consumidor (Direito de Arrependimento de 7 dias).</p>
+<p><strong>7.2. Irreversibilidade da Taxa de Serviço:</strong> A Taxa de Serviço cobrada pela Hora de Correr remunera o serviço tecnológico de intermediação e disponibilização de software, o qual é considerado integralmente prestado no momento da confirmação da inscrição.</p>
+<ul>
+<li><strong>7.2.1.</strong> Em caso de cancelamento do evento por culpa ou iniciativa do ORGANIZADOR, este obriga-se a devolver aos atletas o valor integral pago (incluindo o valor equivalente à Taxa de Serviço), arcando com esse custo em favor do consumidor, visto que a Hora de Correr não devolverá a taxa retida por serviço já prestado.</li>
+<li><strong>7.2.2.</strong> Caso a solicitação de cancelamento da inscrição ocorra estritamente dentro do prazo legal de arrependimento (7 dias da compra) e o evento <em>não</em> tenha ocorrido, a Hora de Correr processará o estorno do valor da inscrição e da taxa de serviço, descontando o saldo correspondente do painel financeiro do ORGANIZADOR.</li>
+</ul>
+<p><strong>7.3. Custos Operacionais de Estorno:</strong> Caso a Hora de Correr precise efetuar estornos em lote devido ao cancelamento do evento pelo ORGANIZADOR, este arcará com todas as taxas de DOC/TED, tarifas de cartão ou custos operacionais cobrados pelos gateways de pagamento para processar as devoluções.</p>
+<hr />
+<h2 id="8-chargebacks-contestacoes-e-fraudes" data-toc-heading>8. Chargebacks, Contestações e Fraudes</h2>
+<p><strong>8.1. Definição de Risco:</strong> O <em>chargeback</em> (contestação de compra realizada diretamente pelo titular do cartão de crédito junto à bandeira/banco emissor por alegada fraude ou desconhecimento da transação) constitui um risco inerente à atividade comercial eletrônica.</p>
+<p><strong>8.2. Atribuição de Responsabilidade:</strong> O ORGANIZADOR assume integralmente o risco financeiro decorrente de fraudes e contestações (<em>chargebacks</em>) associadas às inscrições do seu evento.</p>
+<p><strong>8.3. Mecanismo de Desconto:</strong> Os valores de transações contestadas por atletas (<em>chargebacks</em>) serão automaticamente deduzidos do saldo de repasses futuros devidos ao ORGANIZADOR.</p>
+<ul>
+<li><strong>8.3.1.</strong> Caso o ORGANIZADOR não possua saldo suficiente na Plataforma para cobrir os <em>chargebacks</em>, a Hora de Correr emitirá uma cobrança bancária contra o ORGANIZADOR com vencimento imediato, sujeita a juros e protesto em caso de inadimplemento.</li>
+</ul>
+<hr />
+<h2 id="9-protecao-de-dados-e-lei-geral-de-protecao-de-dados-lgpd" data-toc-heading>9. Proteção de Dados e Lei Geral de Proteção de Dados (LGPD)</h2>
+<p><strong>9.1. Papéis na LGPD:</strong> Para os fins da Lei nº 13.709/2018 (LGPD), a Hora de Correr e o ORGANIZADOR são considerados <strong>Controladores Independentes</strong> ou <strong>Controladores Conjuntos</strong> dos dados pessoais dos atletas, conforme o estágio do tratamento.</p>
+<p><strong>9.2. Finalidade Estrita:</strong> O ORGANIZADOR obriga-se a utilizar os dados pessoais dos atletas (nome, CPF, e-mail, telefone, dados médicos declarados) fornecidos pela Plataforma exclusivamente para fins de organização, identificação, segurança, cronometragem e logística do evento específico para o qual o atleta se inscreveu.</p>
+<p><strong>9.3. Proibições de Uso:</strong> É terminantemente proibido ao ORGANIZADOR vender, ceder, transferir, compartilhar com terceiros não autorizados ou utilizar os dados dos atletas para campanhas de marketing de terceiros sem o consentimento livre, expresso e informado coletado diretamente do titular dos dados.</p>
+<p><strong>9.4. Segurança da Informação:</strong> O ORGANIZADOR compromete-se a adotar medidas técnicas e administrativas aptas a proteger os dados dos atletas contra acessos não autorizados, vazamentos, destruição ou modificação ilícita, responsabilizando-se civilmente por qualquer incidente de dados decorrente de sua negligência ou imperícia.</p>
+<hr />
+<h2 id="10-indenidade-e-responsabilidade-civil" data-toc-heading>10. Indenidade e Responsabilidade Civil</h2>
+<p><strong>10.1. Cláusula de Indenidade:</strong> O ORGANIZADOR obriga-se a manter a Hora de Correr, seus sócios, diretores e colaboradores totalmente indenes de quaisquer reclamações judiciais, administrativas, notificações do PROCON, processos trabalhistas (envolvendo staffs ou prestadores do evento) ou multas de órgãos públicos decorrentes da organização física do evento ou do descumprimento deste Contrato.</p>
+<p><strong>10.2. Direito de Regresso e Denunciação da Lide:</strong> Caso a Hora de Correr venha a ser acionada em juízo por um atleta ou terceiro devido a falhas no evento esportivo (ex: cancelamento sem reembolso, acidentes na prova, falta de kits), o ORGANIZADOR concorda e requer, desde já, a sua inclusão no polo passivo da demanda (denunciação da lide) e assume a obrigação de ressarcir integralmente a Hora de Correr por todas as despesas processuais, honorários advocatícios e condenações financeiras suportadas.</p>
+<hr />
+<h2 id="11-modificacoes-nos-termos-b2b" data-toc-heading>11. Modificações nos Termos B2B</h2>
+<p>A Hora de Correr poderá alterar estes Termos a qualquer momento para adequação legal ou aperfeiçoamento operacional. As novas versões entrarão em vigor imediatamente após sua publicação na Plataforma. O ORGANIZADOR será notificado via painel ou e-mail e, caso discorde dos novos termos, deverá cessar o cadastramento de novos eventos na Plataforma.</p>
+<hr />
+<h2 id="12-legislacao-aplicavel-e-foro" data-toc-heading>12. Legislação Aplicável e Foro</h2>
+<p>Este instrumento é regido e interpretado de acordo com as leis da República Federativa do Brasil. Para dirimir quaisquer controvérsias ou litígios decorrentes deste Contrato, as Partes elegem o Foro da Comarca de Natal, Estado do Rio Grande do Norte, com expressa renúncia a qualquer outro, por mais privilegiado que seja.</p>
+</article>
+      <aside class="hidden xl:block sticky top-[110px]"><div class="rounded-[12px] border border-hc-line p-4 bg-[#FAFAFA]"><i data-lucide="circle-help" class="w-5 h-5 hc-icon"></i><h2 class="mt-4 font-semibold">Precisa de ajuda?</h2><p class="type-small mt-2 text-neutral-600">Dúvidas sobre uma inscrição ou evento podem ser tratadas na Central de ajuda.</p><a href="../ajuda/index.html" class="mt-4 inline-flex items-center gap-1.5 type-small font-semibold">Central de ajuda <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 hc-icon"></i></a></div></aside>
+    </div>
+  </section>
+  <section class="px-5 sm:px-8 border-t border-hc-line"><div class="mx-auto max-w-[1216px] py-12 sm:py-14"><div class="flex items-end justify-between"><div><div class="type-small text-neutral-500">Legal</div><h2 class="type-section mt-2 font-medium">Documentos relacionados</h2></div><a href="index.html" class="hidden sm:inline-flex items-center gap-2 type-small font-semibold">Ver todos <i data-lucide="arrow-up-right" class="w-4 h-4 hc-icon"></i></a></div><div class="mt-6 grid md:grid-cols-3 gap-3"><a href="termos-de-uso.html" class="hc-card rounded-[12px] border border-hc-line p-4"><i data-lucide="file-check-2" class="w-4 h-4 hc-icon"></i><div class="mt-4 font-semibold">Termos de uso</div><p class="type-small mt-1.5 text-neutral-600">Condições para acessar a plataforma, fazer inscrições, pagamentos e utilizar os serviços do Hora de Correr.</p></a><a href="politica-de-reembolso.html" class="hc-card rounded-[12px] border border-hc-line p-4"><i data-lucide="rotate-ccw" class="w-4 h-4 hc-icon"></i><div class="mt-4 font-semibold">Cancelamento e reembolso</div><p class="type-small mt-1.5 text-neutral-600">Regras de cancelamento, direito de arrependimento, estornos e prazos por forma de pagamento.</p></a><a href="responsabilidade-medica.html" class="hc-card rounded-[12px] border border-hc-line p-4"><i data-lucide="heart-pulse" class="w-4 h-4 hc-icon"></i><div class="mt-4 font-semibold">Responsabilidade médica</div><p class="type-small mt-1.5 text-neutral-600">Declarações sobre aptidão física, riscos da atividade esportiva, segurança e uso de imagem.</p></a></div></div></section>
+</main>
+<footer class="hc-footer bg-white overflow-hidden">
+  <div class="relative mx-auto max-w-[1540px] px-5 sm:px-8 lg:px-0 pt-[72px] sm:pt-[88px] pb-[42px]">
+    <div class="relative z-10">
+      <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-9">
+        <h2 class="text-[clamp(2.45rem,2.9vw,3.55rem)] leading-[1.08] tracking-[-.04em] font-medium">
+          Vamos começar<br>a criar, juntos
+        </h2>
+        <a href="../eventos/index.html" class="mt-2 inline-flex self-start items-center gap-2 text-[clamp(1.15rem,1.15vw,1.45rem)] leading-8 font-semibold underline underline-offset-[5px] hover:text-hc-orangeStrong transition-colors">
+          Mais eventos
+          <i data-lucide="arrow-up-right" class="w-5 h-5 hc-icon" aria-hidden="true"></i>
+        </a>
+      </div>
+
+      <div class="mt-[46px] h-px bg-hc-line"></div>
+
+      <div class="relative pt-[48px] min-h-[316px]">
+        <div aria-hidden="true" class="hc-footer-word-approved">Correr</div>
+
+        <div class="relative z-10">
+          <img src="../assets/logo-header.png" alt="Hora de Correr" class="w-[218px] h-auto">
+          <p class="mt-4 type-meta font-medium text-neutral-600">
+            Ferramentas mais inteligentes para quem faz corridas.
+          </p>
+
+          <div class="mt-[54px] flex flex-wrap items-start gap-x-[82px] sm:gap-x-[100px] gap-y-10 type-small">
+            <nav aria-labelledby="footer-recursos" class="grid gap-3">
+              <h3 id="footer-recursos" class="font-medium text-neutral-400">Recursos</h3>
+              <a href="#" class="font-medium hover:underline">Blog</a>
+              <a href="../eventos/index.html" class="font-medium hover:underline">Eventos</a>
+              <a href="#" class="font-medium hover:underline">Produtos</a>
+            </nav>
+
+            <nav aria-labelledby="footer-empresa" class="grid gap-3">
+              <h3 id="footer-empresa" class="font-medium text-neutral-400">Empresa</h3>
+              <a href="../sobre/index.html" class="font-medium hover:underline">Sobre nós</a>
+              <a href="#" class="font-medium hover:underline">Carreiras</a>
+              <a href="../ajuda/index.html#contato" class="font-medium hover:underline">Contato</a>
+            </nav>
+
+            <nav aria-labelledby="footer-legal" class="grid gap-3">
+              <h3 id="footer-legal" class="font-medium text-neutral-400">Legal</h3>
+              <a href="../legal/termos-de-uso.html" class="font-medium hover:underline">Termos & condições</a>
+              <a href="../legal/politica-de-privacidade.html" class="font-medium hover:underline">Políticas de privacidade</a>
+              <a href="../legal/cookies.html" class="font-medium hover:underline">Preferências de Cookies</a>
+            </nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="h-px bg-hc-line"></div>
+      <p class="pt-[36px] type-small font-medium text-neutral-400">
+        2026 Hora de Correr © Todos os direitos reservados.
+      </p>
+    </div>
+  </div>
+</footer>
+<script src="../assets/hc-shell.js"></script>
+<script>
+const headings=[...document.querySelectorAll('[data-toc-heading]')];
+const links=[...document.querySelectorAll('[data-toc-link]')];
+if('IntersectionObserver'in window&&headings.length){
+  const observer=new IntersectionObserver(entries=>{
+    const v=entries.filter(e=>e.isIntersecting).sort((a,b)=>a.boundingClientRect.top-b.boundingClientRect.top)[0];
+    if(!v)return; links.forEach(a=>a.setAttribute('aria-current',String(a.dataset.tocLink===v.target.id)));
+  },{rootMargin:'-20% 0px -68% 0px',threshold:0});
+  headings.forEach(h=>observer.observe(h));
+}
+const save=document.getElementById('saveCookies');
+if(save){
+  const ids=['cookieAnalytics','cookieFunctional','cookieMarketing'];
+  const saved=JSON.parse(localStorage.getItem('hc-cookie-preferences')||'null');
+  if(saved)ids.forEach(id=>{const el=document.getElementById(id);if(el)el.checked=!!saved[id]});
+  save.addEventListener('click',()=>{const prefs={};ids.forEach(id=>prefs[id]=document.getElementById(id).checked);localStorage.setItem('hc-cookie-preferences',JSON.stringify(prefs));document.getElementById('cookieSaved').classList.remove('hidden')});
+  document.getElementById('rejectOptional').addEventListener('click',()=>{ids.forEach(id=>document.getElementById(id).checked=false);save.click()});
+}
+</script>
+</body></html>
