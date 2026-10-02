@@ -1,0 +1,797 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hora de Correr — Encontre seu evento</title>
+  <meta name="description" content="Encontre eventos, acompanhe sua inscrição e receba informações úteis durante toda a jornada da sua corrida.">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            hc: {
+              orange: '#E96F2B',
+              orangeStrong: '#F56F18',
+              orangeSoft: '#FFF1E8',
+              ink: '#171717',
+              soft: '#6B6B6B',
+              muted: '#8B8B8B',
+              weak: '#F7F7F7',
+              line: '#E6E6E6',
+              green: '#1BAF63',
+              greenSoft: '#EAF8F0',
+              blueSoft: '#EEF3F7'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif']
+          },
+          maxWidth: {
+            hc: '1560px'
+          }
+        }
+      }
+    }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
+
+  <style>
+    :root {
+      --ease-ui: cubic-bezier(.2,.8,.2,1);
+      --hero-bg: linear-gradient(180deg, #ffffff 0%, #fbfbfa 66%, #f8f8f7 100%);
+      --section-soft: linear-gradient(180deg, #ffffff 0%, #fbfbfa 100%);
+      --section-soft-reverse: linear-gradient(180deg, #fbfbfa 0%, #ffffff 100%);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      font-feature-settings: "ss11" 1, "calt" 0, "liga" 0;
+      background: #fff;
+    }
+
+    .type-display {
+      font-size: clamp(2.65rem, 2.65vw, 4.25rem);
+      line-height: 1.02;
+      letter-spacing: -.038em;
+    }
+
+    .type-section {
+      font-size: clamp(2rem, 1.85vw, 3rem);
+      line-height: 1.08;
+      letter-spacing: -.028em;
+    }
+
+    .type-body {
+      font-size: clamp(1rem, .66vw, 1.12rem);
+      line-height: 1.6;
+    }
+
+    .type-card-title {
+      font-size: clamp(1rem, .68vw, 1.12rem);
+      line-height: 1.42;
+    }
+
+    .type-meta {
+      font-size: clamp(.9rem, .56vw, 1rem);
+      line-height: 1.5;
+    }
+
+    .type-small {
+      font-size: clamp(.82rem, .5vw, .92rem);
+      line-height: 1.45;
+    }
+
+    .focus-ring:focus-visible {
+      outline: 3px solid rgba(233,111,43,.24);
+      outline-offset: 3px;
+    }
+
+    .hero-surface { background: var(--hero-bg); }
+    .soft-surface { background: var(--section-soft); }
+    .soft-surface-reverse { background: var(--section-soft-reverse); }
+
+    .event-card,
+    .ui-control,
+    .filter-chip {
+      transition:
+        transform 260ms var(--ease-ui),
+        border-color 220ms var(--ease-ui),
+        background-color 220ms var(--ease-ui),
+        color 220ms var(--ease-ui),
+        box-shadow 260ms var(--ease-ui);
+    }
+
+    .event-card img {
+      transition: transform 420ms var(--ease-ui), filter 260ms var(--ease-ui);
+    }
+
+    .event-card:hover {
+      transform: translateY(-3px);
+    }
+
+    .event-card:hover img {
+      transform: scale(1.012);
+    }
+
+    [data-lucide="route"],
+    [data-lucide="arrow-up-right"] {
+      transform: rotate(-2deg);
+      transform-origin: center;
+    }
+
+    .filter-chip[aria-pressed="true"] {
+      background: #171717;
+      border-color: #171717;
+      color: #fff;
+    }
+
+    .filter-chip[aria-pressed="true"] .count {
+      color: rgba(255,255,255,.66);
+    }
+
+    .hide-scrollbar::-webkit-scrollbar { display:none; }
+    .hide-scrollbar { scrollbar-width:none; }
+
+    .closed-card img {
+      filter: saturate(.38) contrast(.92);
+    }
+
+    .footer-word {
+      right: clamp(-8rem, -4vw, -2.5rem);
+      bottom: 3.6rem;
+      font-size: clamp(13rem, 19vw, 29rem);
+      letter-spacing: -.075em;
+      line-height: .72;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+      }
+    }
+  </style>
+  <link rel="stylesheet" href="assets/hc-ui.css">
+</head>
+
+<body class="font-sans text-hc-ink">
+
+  <!-- HEADER -->
+  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-xl border-b border-hc-line">
+  <nav aria-label="Navegação principal" class="px-5 sm:px-8 lg:px-11 py-4 lg:py-5 flex items-center gap-6">
+    <a href="index.html" class="focus-ring rounded-md shrink-0" aria-label="Hora de Correr, página inicial">
+      <img src="assets/logo-header.png" alt="Hora de Correr" class="w-[146px] sm:w-[156px] h-auto">
+    </a>
+
+    <div class="flex-1"></div>
+
+    <div class="hidden md:flex items-center gap-4" role="list">
+      <a href="index.html#inscricoes" class="hc-header-link px-2.5 py-1.5 rounded-[10px] inline-flex items-center gap-1.5 text-sm font-medium text-neutral-600" role="listitem">
+        <i data-lucide="ticket" class="w-5 h-5 hc-icon" aria-hidden="true"></i>
+        <span>Minhas Inscrições</span>
+      </a>
+
+      <a href="index.html#eventos" class="hc-header-link px-2.5 py-1.5 rounded-[10px] inline-flex items-center gap-1.5 text-sm font-medium text-neutral-600" role="listitem">
+        <i data-lucide="calendar-days" class="w-5 h-5 hc-icon" aria-hidden="true"></i>
+        <span>Meus eventos</span>
+      </a>
+
+      <div class="relative ml-1">
+        <button id="profileMenuButton" type="button" class="focus-ring pl-1 pr-2 py-1 bg-white rounded-full border border-hc-line inline-flex items-center gap-1.5" aria-haspopup="menu" aria-expanded="false" aria-label="Abrir menu da conta">
+          <span class="w-8 h-8 rounded-full bg-neutral-200 grid place-items-center overflow-hidden">
+            <i data-lucide="circle-user-round" class="w-7 h-7 text-neutral-400" aria-hidden="true"></i>
+          </span>
+          <i data-lucide="chevron-down" class="w-5 h-5 hc-icon" aria-hidden="true"></i>
+        </button>
+        <div id="profileMenu" role="menu" class="hidden absolute right-0 mt-2 w-48 rounded-xl border border-hc-line bg-white p-1.5 shadow-[0_12px_32px_rgba(0,0,0,.08)]">
+          <a role="menuitem" href="#" class="block rounded-lg px-3 py-2.5 text-sm hover:bg-hc-weak">Minha conta</a>
+          <a role="menuitem" href="ajuda/index.html" class="block rounded-lg px-3 py-2.5 text-sm hover:bg-hc-weak">Central de ajuda</a>
+        </div>
+      </div>
+    </div>
+
+    <button id="mobileMenuButton" type="button" class="md:hidden focus-ring w-11 h-11 rounded-full border border-hc-line grid place-items-center" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobileMenu">
+      <i data-lucide="menu" class="w-5 h-5 hc-icon" aria-hidden="true"></i>
+    </button>
+  </nav>
+
+  <div id="mobileMenu" class="hidden md:hidden border-t border-hc-line bg-white px-5 py-3">
+    <nav aria-label="Navegação mobile" class="grid">
+      <a href="index.html#inscricoes" class="py-3 flex items-center gap-3 text-sm font-medium"><i data-lucide="ticket" class="w-5 h-5 hc-icon"></i>Minhas Inscrições</a>
+      <a href="index.html#eventos" class="py-3 flex items-center gap-3 text-sm font-medium"><i data-lucide="calendar-days" class="w-5 h-5 hc-icon"></i>Meus eventos</a>
+      <a href="ajuda/index.html" class="py-3 flex items-center gap-3 text-sm font-medium"><i data-lucide="circle-help" class="w-5 h-5 hc-icon"></i>Central de ajuda</a>
+    </nav>
+  </div>
+</header>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="hero-surface px-5 sm:px-8">
+      <div class="mx-auto max-w-hc pt-[68px] sm:pt-[84px] 2xl:pt-[96px] pb-[70px] sm:pb-[86px] 2xl:pb-[96px] text-center">
+        <div class="inline-flex items-center rounded-[9px] bg-white/78 border border-black/[.035] px-[10px] py-1 type-small text-neutral-600">
+          Corridas
+        </div>
+
+        <h1 class="type-display mx-auto mt-4 max-w-[1050px] font-medium">
+          Encontre seu evento aqui
+        </h1>
+
+        <p class="type-body mx-auto mt-6 max-w-[760px] text-neutral-600">
+          Encontre seu evento e continue acompanhando do seu jeito. Pesquise por cidade, prova ou distância para começar.
+        </p>
+
+        <form id="searchForm" class="mx-auto mt-10 max-w-[860px]" role="search">
+          <div class="ui-control p-1.5 rounded-[14px] border border-black/[.08] flex flex-col sm:flex-row gap-1.5 bg-white shadow-[0_8px_28px_rgba(0,0,0,.035)] focus-within:border-black/[.18]">
+            <label class="flex-1 min-h-[58px] 2xl:min-h-[64px] px-4 flex items-center gap-3 text-left">
+              
+              <span class="sr-only">Buscar corrida</span>
+              <input id="searchInput" type="search" autocomplete="off" placeholder="Nome da corrida, cidade ou distância"
+                     class="w-full outline-none bg-transparent type-meta placeholder:text-neutral-500">
+            </label>
+            <button type="submit" class="focus-ring min-h-[58px] 2xl:min-h-[64px] px-7 rounded-[10px] bg-hc-ink text-white type-meta font-semibold hover:bg-neutral-800 transition-colors">
+              Buscar
+            </button>
+          </div>
+
+          <div class="mt-5 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 type-small text-neutral-600">
+            <span class="text-neutral-500">Atalhos:</span>
+            <button type="button" data-query="Natal" class="quick-search hover:text-hc-orangeStrong font-medium underline-offset-4 hover:underline">Natal</button>
+            <button type="button" data-query="5 km" class="quick-search hover:text-hc-orangeStrong font-medium underline-offset-4 hover:underline">5 km</button>
+            <button type="button" data-query="10 km" class="quick-search hover:text-hc-orangeStrong font-medium underline-offset-4 hover:underline">10 km</button>
+            <button type="button" data-query="21 km" class="quick-search hover:text-hc-orangeStrong font-medium underline-offset-4 hover:underline">21 km</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- CATÁLOGO -->
+    <section id="eventos" class="soft-surface px-5 sm:px-8">
+      <div class="mx-auto max-w-hc py-[72px] sm:py-[84px] 2xl:py-[96px]">
+
+        <div class="flex flex-col xl:flex-row xl:items-end xl:justify-between gap-8">
+          <div>
+            <div class="inline-flex items-center rounded-[9px] bg-hc-weak px-[10px] py-1 type-small text-neutral-600">
+              Catálogo de eventos
+            </div>
+            <h2 class="type-section mt-4 font-medium">
+              Encontre sua próxima corrida
+            </h2>
+            <p class="type-body mt-4 max-w-[760px] text-neutral-600">
+              Explore as próximas provas e use os filtros para chegar mais rápido ao evento que combina com você.
+            </p>
+          </div>
+
+          <div class="flex items-end gap-6">
+            <div class="text-right">
+              <div id="resultCount" class="text-[1.7rem] 2xl:text-[2rem] leading-none font-semibold tracking-[-.035em]">9</div>
+              <div class="type-small mt-1 text-neutral-500">eventos encontrados</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- FILTER BAR -->
+        <div class="mt-10 border-y border-hc-line py-4">
+          <div class="flex flex-col xl:flex-row xl:items-center xl:justify-between gap-4">
+            <div class="hide-scrollbar overflow-x-auto flex gap-2 pb-1">
+              <button class="filter-chip shrink-0 h-10 px-4 rounded-full border border-hc-line bg-white type-small font-medium" aria-pressed="true" data-status="available">
+                Disponíveis <span class="count ml-1 text-neutral-500">9</span>
+              </button>
+              <button class="filter-chip shrink-0 h-10 px-4 rounded-full border border-hc-line bg-white type-small font-medium" aria-pressed="false" data-status="open">
+                Inscrições abertas <span class="count ml-1 text-neutral-500">4</span>
+              </button>
+              <button class="filter-chip shrink-0 h-10 px-4 rounded-full border border-hc-line bg-white type-small font-medium" aria-pressed="false" data-status="soon">
+                Em breve <span class="count ml-1 text-neutral-500">5</span>
+              </button>
+              <button class="filter-chip shrink-0 h-10 px-4 rounded-full border border-hc-line bg-white type-small font-medium" aria-pressed="false" data-status="closed" data-closed="true">
+                Encerrados <span class="count ml-1 text-neutral-500">3</span>
+              </button>
+            </div>
+
+            <div class="flex gap-2">
+              <label class="ui-control h-10 px-3.5 rounded-[10px] border border-hc-line bg-white flex items-center gap-2">
+                <i data-lucide="map-pin" class=" text-neutral-500"></i>
+                <select id="cityFilter" class="outline-none bg-transparent type-small pr-2">
+                  <option value="all">Todas as cidades</option>
+                  <option value="natal">Natal</option>
+                  <option value="recife">Recife</option>
+                  <option value="joao pessoa">João Pessoa</option>
+                  <option value="fortaleza">Fortaleza</option>
+                </select>
+              </label>
+
+              <button id="moreFiltersBtn" class="ui-control h-10 px-3.5 rounded-[10px] border border-hc-line bg-white inline-flex items-center gap-2 type-small font-medium" aria-expanded="false" aria-controls="moreFilters">
+                <i data-lucide="sliders-horizontal" class=""></i>
+                Mais filtros
+              </button>
+            </div>
+          </div>
+
+          <div id="moreFilters" class="hidden mt-4 pt-4 border-t border-hc-line">
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
+              <label class="grid gap-1.5">
+                <span class="type-small text-neutral-500">Distância</span>
+                <select id="distanceFilter" class="h-11 rounded-[9px] border border-hc-line bg-white px-3 type-small outline-none">
+                  <option value="all">Todas</option>
+                  <option value="5 km">5 km</option>
+                  <option value="10 km">10 km</option>
+                  <option value="21 km">21 km</option>
+                  <option value="kids">Kids</option>
+                </select>
+              </label>
+
+              <label class="grid gap-1.5">
+                <span class="type-small text-neutral-500">Período</span>
+                <select class="h-11 rounded-[9px] border border-hc-line bg-white px-3 type-small outline-none">
+                  <option>Próximos 30 dias</option>
+                  <option>Próximos 90 dias</option>
+                  <option>Este ano</option>
+                </select>
+              </label>
+
+              <label class="grid gap-1.5">
+                <span class="type-small text-neutral-500">Ordenar por</span>
+                <select class="h-11 rounded-[9px] border border-hc-line bg-white px-3 type-small outline-none">
+                  <option>Mais próximos</option>
+                  <option>Mais recentes</option>
+                  <option>Distância</option>
+                </select>
+              </label>
+
+              <div class="flex items-end">
+                <button id="clearFilters" class="h-11 type-small font-medium underline underline-offset-4">Limpar filtros</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- EVENT GRID -->
+        <div id="eventGrid" class="event-rail mt-9 flex overflow-x-auto snap-x snap-mandatory gap-4 -mx-5 px-5 pb-4 hide-scrollbar sm:mx-0 sm:px-0 sm:pb-0 sm:grid sm:grid-cols-2 lg:grid-cols-3 min-[1500px]:grid-cols-4 min-[2050px]:grid-cols-5 sm:overflow-visible gap-x-6 2xl:gap-x-7 gap-y-10 2xl:gap-y-12">
+
+          <a href="eventos/index.html" class="event-card block group shrink-0 w-[82vw] max-w-[340px] snap-start sm:w-auto sm:max-w-none" data-status="open" data-city="natal" data-distance="5 km 10 km 15 km" data-search="corrida do bom vizinho rede mais natal 5 km 10 km 15 km">
+            <div class="overflow-hidden rounded-[7px] bg-hc-weak aspect-square border border-black/[.035]">
+              <img src="assets/event-1.jpg" alt="Corrida do Bom Vizinho Rede Mais" class="w-full h-full object-cover">
+            </div>
+            <div class="mt-4">
+              <h3 class="type-card-title font-medium tracking-[-.011em]">Corrida do Bom Vizinho Rede Mais</h3>
+              <p class="type-meta mt-1 text-neutral-500">Arena das Dunas, Natal / RN</p>
+              <p class="type-small mt-1 font-medium text-neutral-600">Domingo, 02 Ago às 16h</p>
+              <span class="mt-4 inline-flex items-center rounded-full bg-hc-orangeStrong px-2 py-0.5 text-[11px] 2xl:text-[12px] leading-3 font-semibold uppercase tracking-[.03em] text-white">
+                Entrega de kits
+              </span>
+            </div>
+          </a>
+
+          <a href="eventos/index.html" class="event-card block group shrink-0 w-[82vw] max-w-[340px] snap-start sm:w-auto sm:max-w-none" data-status="open" data-city="natal" data-distance="5 km 10 km" data-search="corrida do empreendedor sebrae natal 5 km 10 km">
+            <div class="overflow-hidden rounded-[7px] bg-hc-weak aspect-square border border-black/[.035]">
+              <img src="assets/event-2.jpg" alt="Corrida do Empreendedor - Sebrae" class="w-full h-full object-cover">
+            </div>
+            <div class="mt-4">
+              <h3 class="type-card-title font-medium">Corrida do Empreendedor - Sebrae</h3>
+              <p class="type-meta mt-1 text-neutral-500">Arena das Dunas, Natal / RN</p>
+              <p class="type-small mt-1 font-medium text-neutral-600">Domingo, 24 Out às 16h</p>
+              <span class="mt-4 inline-flex items-center rounded-full bg-hc-green px-2 py-0.5 text-[11px] 2xl:text-[12px] leading-3 font-semibold uppercase tracking-[.03em] text-white">
+                Inscrições abertas
+              </span>
+            </div>
+          </a>
+
+          <a href="eventos/index.html" class="event-card block group shrink-0 w-[82vw] max-w-[340px] snap-start sm:w-auto sm:max-w-none" data-status="open" data-city="porto alegre" data-distance="5 km 10 km 15 km" data-search="3 corrida coopanest rn porto alegre 5 km 10 km 15 km">
+            <div class="overflow-hidden rounded-[7px] bg-hc-weak aspect-square border border-black/[.035]">
+              <img src="assets/event-3.jpg" alt="3ª Corrida Coopanest - RN" class="w-full h-full object-cover">
+            </div>
+            <div class="mt-4">
+              <h3 class="type-card-title font-medium">3º Corrida Coopanest - RN</h3>
+              <p class="type-meta mt-1 text-neutral-500">Estação Farroupilha, Porto Alegre / RS</p>
+              <p class="type-small mt-1 font-medium text-neutral-600">Sexta, 18 Out às 16h</p>
+              <span class="mt-4 inline-flex items-center rounded-full bg-hc-green px-2 py-0.5 text-[11px] 2xl:text-[12px] leading-3 font-semibold uppercase tracking-[.03em] text-white">
+                Inscrições abertas
+              </span>
+            </div>
+          </a>
+
+          <a href="eventos/meia-maratona-prf-191.html" class="event-card block group shrink-0 w-[82vw] max-w-[340px] snap-start sm:w-auto sm:max-w-none" data-status="open" data-city="natal" data-distance="5 km 10 km 21 km" data-search="meia maratona da prf 2026 natal 5 km 10 km 21 km">
+            <div class="overflow-hidden rounded-[7px] bg-hc-weak aspect-square border border-black/[.035]">
+              <img src="assets/event-4.jpg" alt="Meia Maratona da PRF 2026" class="w-full h-full object-cover">
+            </div>
+            <div class="mt-4">
+              <h3 class="type-card-title font-medium">Meia Maratona da PRF 2026</h3>
+              <p class="type-meta mt-1 text-neutral-500">Arena das Dunas, Natal / RN</p>
+              <p class="type-small mt-1 font-medium text-neutral-600">Sábado, 08 Nov às 16h</p>
+              <span class="mt-4 inline-flex items-center rounded-full bg-hc-green px-2 py-0.5 text-[11px] 2xl:text-[12px] leading-3 font-semibold uppercase tracking-[.03em] text-white">
+                Inscrições abertas
+              </span>
+            </div>
+          </a>
+
+          <a href="eventos/index.html" class="event-card block group shrink-0 w-[82vw] max-w-[340px] snap-start sm:w-auto sm:max-w-none" data-status="soon" data-city="recife" data-distance="5 km 10 km" data-search="corrida do sol recife 5 km 10 km">
+            <div class="overflow-hidden rounded-[7px] bg-hc-weak aspect-square border border-black/[.035]">
+              <img src="assets/event-5.svg" alt="Corrida do Sol" class="w-full h-full object-cover">
+            </div>
+            <div class="mt-4">
+              <h3 class="type-card-title font-medium">Corrida do Sol</h3>
+              <p class="type-meta mt-1 text-neutral-500">Marco Zero, Recife / PE</p>
+              <p class="type-small mt-1 font-medium text-neutral-600">Domingo, 05 Jul às 5h30</p>
+              <span class="mt-4 inline-flex items-center rounded-full bg-[#E8E8E8] px-2 py-0.5 text-[11px] 2xl:text-[12px] leading-3 font-semibold uppercase tracking-[.03em] text-neutral-600">
+                Em breve
+              </span>
+            </div>
+          </a>
+
+          <a href="eventos/index.html" class="event-card block group shrink-0 w-[82vw] max-w-[340px] snap-start sm:w-auto sm:max-w-none" data-status="soon" data-city="natal" data-distance="5 km 10 km 15 km" data-search="move natal 5 km 10 km 15 km">
+            <div class="overflow-hidden rounded-[7px] bg-hc-weak aspect-square border border-black/[.035]">
+              <img src="assets/event-6.svg" alt="Move Natal" class="w-full h-full object-cover">
+            </div>
+            <div class="mt-4">
+              <h3 class="type-card-title font-medium">Move Natal</h3>
+              <p class="type-meta mt-1 text-neutral-500">Via Costeira, Natal / RN</p>
+              <p class="type-small mt-1 font-medium text-neutral-600">Domingo, 12 Jul às 5h</p>
+              <span class="mt-4 inline-flex items-center rounded-full bg-[#E8E8E8] px-2 py-0.5 text-[11px] 2xl:text-[12px] leading-3 font-semibold uppercase tracking-[.03em] text-neutral-600">
+                Em breve
+              </span>
+            </div>
+          </a>
+
+          <a href="eventos/index.html" class="event-card block group shrink-0 w-[82vw] max-w-[340px] snap-start sm:w-auto sm:max-w-none" data-status="soon" data-city="santa teresa" data-distance="6 km 12 km" data-search="run serra santa teresa 6 km 12 km">
+            <div class="overflow-hidden rounded-[7px] bg-hc-weak aspect-square border border-black/[.035]">
+              <img src="assets/event-7.svg" alt="Run Serra" class="w-full h-full object-cover">
+            </div>
+            <div class="mt-4">
+              <h3 class="type-card-title font-medium">Run Serra</h3>
+              <p class="type-meta mt-1 text-neutral-500">Centro, Santa Teresa / ES</p>
+              <p class="type-small mt-1 font-medium text-neutral-600">Domingo, 26 Jul às 6h</p>
+              <span class="mt-4 inline-flex items-center rounded-full bg-[#E8E8E8] px-2 py-0.5 text-[11px] 2xl:text-[12px] leading-3 font-semibold uppercase tracking-[.03em] text-neutral-600">
+                Em breve
+              </span>
+            </div>
+          </a>
+
+          <a href="eventos/index.html" class="event-card block group shrink-0 w-[82vw] max-w-[340px] snap-start sm:w-auto sm:max-w-none" data-status="soon" data-city="joao pessoa" data-distance="5 km 10 km" data-search="corre joao pessoa 5 km 10 km">
+            <div class="overflow-hidden rounded-[7px] bg-hc-weak aspect-square border border-black/[.035]">
+              <img src="assets/event-8.svg" alt="Corre João Pessoa" class="w-full h-full object-cover">
+            </div>
+            <div class="mt-4">
+              <h3 class="type-card-title font-medium">Corre João Pessoa</h3>
+              <p class="type-meta mt-1 text-neutral-500">Cabo Branco, João Pessoa / PB</p>
+              <p class="type-small mt-1 font-medium text-neutral-600">Domingo, 09 Ago às 5h</p>
+              <span class="mt-4 inline-flex items-center rounded-full bg-[#E8E8E8] px-2 py-0.5 text-[11px] 2xl:text-[12px] leading-3 font-semibold uppercase tracking-[.03em] text-neutral-600">
+                Em breve
+              </span>
+            </div>
+          </a>
+
+          <a href="eventos/index.html" class="event-card block group shrink-0 w-[82vw] max-w-[340px] snap-start sm:w-auto sm:max-w-none" data-status="soon" data-city="fortaleza" data-distance="5 km 10 km" data-search="mare run fortaleza 5 km 10 km">
+            <div class="overflow-hidden rounded-[7px] bg-hc-weak aspect-square border border-black/[.035]">
+              <img src="assets/event-9.svg" alt="Maré Run" class="w-full h-full object-cover">
+            </div>
+            <div class="mt-4">
+              <h3 class="type-card-title font-medium">Maré Run</h3>
+              <p class="type-meta mt-1 text-neutral-500">Beira Mar, Fortaleza / CE</p>
+              <p class="type-small mt-1 font-medium text-neutral-600">Domingo, 23 Ago às 5h30</p>
+              <span class="mt-4 inline-flex items-center rounded-full bg-[#E8E8E8] px-2 py-0.5 text-[11px] 2xl:text-[12px] leading-3 font-semibold uppercase tracking-[.03em] text-neutral-600">
+                Em breve
+              </span>
+            </div>
+          </a>
+
+          <a href="eventos/index.html" class="event-card closed-card block group shrink-0 w-[82vw] max-w-[340px] snap-start sm:w-auto sm:max-w-none" data-status="closed" data-closed="true" data-city="recife" data-distance="10 km 21 km" data-search="desafio das pontes recife 10 km 21 km">
+            <div class="overflow-hidden rounded-[7px] bg-hc-weak aspect-square border border-black/[.035]">
+              <img src="assets/event-10.svg" alt="Desafio das Pontes" class="w-full h-full object-cover">
+            </div>
+            <div class="mt-4">
+              <h3 class="type-card-title font-medium">Desafio das Pontes</h3>
+              <p class="type-meta mt-1 text-neutral-500">Recife Antigo, Recife / PE</p>
+              <p class="type-small mt-1 font-medium text-neutral-600">Edição 2025</p>
+              <span class="mt-4 inline-flex items-center rounded-full bg-hc-weak px-2 py-0.5 text-[11px] 2xl:text-[12px] leading-3 font-semibold uppercase tracking-[.03em] text-neutral-500">
+                Encerrado
+              </span>
+            </div>
+          </a>
+
+          <a href="eventos/index.html" class="event-card closed-card block group shrink-0 w-[82vw] max-w-[340px] snap-start sm:w-auto sm:max-w-none" data-status="closed" data-closed="true" data-city="natal" data-distance="5 km 10 km" data-search="natal night run 5 km 10 km">
+            <div class="overflow-hidden rounded-[7px] bg-hc-weak aspect-square border border-black/[.035]">
+              <img src="assets/event-11.svg" alt="Natal Night Run" class="w-full h-full object-cover">
+            </div>
+            <div class="mt-4">
+              <h3 class="type-card-title font-medium">Natal Night Run</h3>
+              <p class="type-meta mt-1 text-neutral-500">Ponta Negra, Natal / RN</p>
+              <p class="type-small mt-1 font-medium text-neutral-600">Edição 2025</p>
+              <span class="mt-4 inline-flex items-center rounded-full bg-hc-weak px-2 py-0.5 text-[11px] 2xl:text-[12px] leading-3 font-semibold uppercase tracking-[.03em] text-neutral-500">
+                Encerrado
+              </span>
+            </div>
+          </a>
+
+          <a href="eventos/index.html" class="event-card closed-card block group shrink-0 w-[82vw] max-w-[340px] snap-start sm:w-auto sm:max-w-none" data-status="closed" data-closed="true" data-city="olinda" data-distance="5 km 12 km" data-search="corrida historica olinda 5 km 12 km">
+            <div class="overflow-hidden rounded-[7px] bg-hc-weak aspect-square border border-black/[.035]">
+              <img src="assets/event-12.svg" alt="Corrida Histórica" class="w-full h-full object-cover">
+            </div>
+            <div class="mt-4">
+              <h3 class="type-card-title font-medium">Corrida Histórica</h3>
+              <p class="type-meta mt-1 text-neutral-500">Sítio Histórico, Olinda / PE</p>
+              <p class="type-small mt-1 font-medium text-neutral-600">Edição 2025</p>
+              <span class="mt-4 inline-flex items-center rounded-full bg-hc-weak px-2 py-0.5 text-[11px] 2xl:text-[12px] leading-3 font-semibold uppercase tracking-[.03em] text-neutral-500">
+                Encerrado
+              </span>
+            </div>
+          </a>
+        </div>
+
+        <div id="emptySearch" class="hidden mt-16 py-14 border-y border-hc-line text-center">
+          <div class="mx-auto w-12 h-12 rounded-full bg-neutral-100 text-neutral-500 grid place-items-center">
+            <i data-lucide="search" class="-minus text-2xl"></i>
+          </div>
+          <h3 class="mt-4 type-card-title font-semibold">Não encontramos uma corrida com esses filtros.</h3>
+          <p class="type-meta mt-2 text-neutral-600">Você pode limpar a busca e continuar explorando os eventos.</p>
+          <button id="clearSearch" class="mt-5 type-meta font-semibold text-hc-orangeStrong underline underline-offset-4">Limpar busca</button>
+        </div>
+
+        <div class="mt-14 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 border-t border-hc-line pt-6">
+          <p class="type-small text-neutral-500">Mostrando inscrições abertas e eventos em breve. Eventos encerrados ficam fora da lista principal.</p>
+          <button class="inline-flex items-center gap-2 type-meta font-semibold hover:text-hc-orangeStrong transition-colors">
+            Ver calendário completo
+            <i data-lucide="arrow-up-right" class=" text-[1.1em]"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- JORNADA -->
+    <section class="soft-surface-reverse px-5 sm:px-8" id="inscricoes">
+      <div class="mx-auto max-w-hc py-[76px] sm:py-[88px] 2xl:py-[104px]">
+        <div class="grid lg:grid-cols-[.78fr_1.22fr] gap-14 lg:gap-24 items-start">
+          <div class="lg:sticky lg:top-32">
+            <div class="inline-flex items-center rounded-[9px] bg-hc-weak px-[10px] py-1 type-small text-neutral-600">
+              Sua jornada
+            </div>
+            <h2 class="type-section mt-4 font-medium max-w-[620px]">
+              Sua corrida continua por aqui
+            </h2>
+            <p class="type-body mt-5 max-w-[560px] text-neutral-600">
+              No Hora de Correr você acompanha inscrição, avisos e detalhes da prova no seu tempo.
+            </p>
+          </div>
+
+          <div class="border-t border-hc-line">
+            <div class="py-7 sm:py-8 border-b border-hc-line grid grid-cols-[48px_1fr] gap-5">
+              <span class="w-11 h-11 rounded-full bg-neutral-100 text-neutral-500 grid place-items-center">
+                <i data-lucide="ticket" class=" text-xl"></i>
+              </span>
+              <div>
+                <h3 class="type-card-title font-semibold">Sua inscrição fica fácil de acompanhar</h3>
+                <p class="type-meta mt-2 text-neutral-600">Veja status, dados da prova e o que ainda precisa ser feito sem precisar procurar em vários lugares.</p>
+              </div>
+            </div>
+
+            <div class="py-7 sm:py-8 border-b border-hc-line grid grid-cols-[48px_1fr] gap-5">
+              <span class="w-11 h-11 rounded-full bg-neutral-100 text-neutral-500 grid place-items-center">
+                <i data-lucide="bell-ring" class=" text-xl"></i>
+              </span>
+              <div>
+                <h3 class="type-card-title font-semibold">Você recebe avisos no momento certo</h3>
+                <p class="type-meta mt-2 text-neutral-600">Kit, mudanças importantes, documentos e informações da organização chegam com contexto e sem excesso.</p>
+              </div>
+            </div>
+
+            <div class="py-7 sm:py-8 border-b border-hc-line grid grid-cols-[48px_1fr] gap-5">
+              <span class="w-11 h-11 rounded-full bg-neutral-100 text-neutral-500 grid place-items-center">
+                <i data-lucide="map" class=" text-xl"></i>
+              </span>
+              <div>
+                <h3 class="type-card-title font-semibold">Os detalhes acompanham o momento da corrida</h3>
+                <p class="type-meta mt-2 text-neutral-600">Percurso, largada, orientações e resultado aparecem quando passam a ser úteis para você.</p>
+              </div>
+            </div>
+
+            <a href="#" class="group py-8 flex items-center justify-between gap-6">
+              <div>
+                <span class="type-small text-neutral-500">Minha área</span>
+                <div class="type-card-title mt-1 font-semibold">Continue acompanhando suas corridas</div>
+              </div>
+              <span class="w-11 h-11 rounded-full border border-hc-line grid place-items-center group-hover:bg-hc-ink group-hover:text-white transition-colors duration-200">
+                <i data-lucide="arrow-up-right" class=" text-xl"></i>
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESULTADOS -->
+    <section id="resultados" class="px-5 sm:px-8 bg-[linear-gradient(180deg,#ffffff_0%,#fafafa_58%,#ffffff_100%)]">
+      <div class="mx-auto max-w-hc py-[76px] sm:py-[88px] 2xl:py-[104px]">
+        <div class="grid lg:grid-cols-[.82fr_1.18fr] gap-12 lg:gap-24 items-center">
+          <div>
+            <div class="inline-flex items-center rounded-[9px] bg-white border border-black/[.04] px-[10px] py-1 type-small text-neutral-600">
+              Resultados
+            </div>
+            <h2 class="type-section mt-4 font-medium">
+              Correu? Seu resultado também fica por aqui
+            </h2>
+            <p class="type-body mt-5 max-w-[620px] text-neutral-600">
+              Pesquise pelo evento ou atleta e encontre o resultado. Aos poucos, seu histórico de corridas fica reunido na plataforma.
+            </p>
+          </div>
+
+          <form class="bg-white border border-black/[.06] rounded-[14px] p-2 shadow-[0_10px_32px_rgba(0,0,0,.035)] flex flex-col sm:flex-row gap-2">
+            <label class="min-h-[56px] flex-1 flex items-center gap-3 px-4">
+              <i data-lucide="medal" class=" text-[21px] text-neutral-500"></i>
+              <input type="text" class="w-full outline-none type-meta placeholder:text-neutral-500" placeholder="Nome do evento ou atleta">
+            </label>
+            <button type="button" class="min-h-[56px] px-6 rounded-[10px] bg-hc-ink text-white type-meta font-semibold hover:bg-neutral-800 transition-colors">
+              Buscar resultado
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="hc-footer bg-white overflow-hidden">
+  <div class="relative mx-auto max-w-[1540px] px-5 sm:px-8 lg:px-0 pt-[72px] sm:pt-[88px] pb-[42px]">
+    <div class="relative z-10">
+      <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-9">
+        <h2 class="text-[clamp(2.45rem,2.9vw,3.55rem)] leading-[1.08] tracking-[-.04em] font-medium">
+          Vamos começar<br>a criar, juntos
+        </h2>
+        <a href="eventos/index.html" class="mt-2 inline-flex self-start items-center gap-2 text-[clamp(1.15rem,1.15vw,1.45rem)] leading-8 font-semibold underline underline-offset-[5px] hover:text-hc-orangeStrong transition-colors">
+          Mais eventos
+          <i data-lucide="arrow-up-right" class="w-5 h-5 hc-icon" aria-hidden="true"></i>
+        </a>
+      </div>
+
+      <div class="mt-[46px] h-px bg-hc-line"></div>
+
+      <div class="relative pt-[48px] min-h-[316px]">
+        <div aria-hidden="true" class="hc-footer-word-approved">Correr</div>
+
+        <div class="relative z-10">
+          <img src="assets/logo-header.png" alt="Hora de Correr" class="w-[218px] h-auto">
+          <p class="mt-4 type-meta font-medium text-neutral-600">
+            Ferramentas mais inteligentes para quem faz corridas.
+          </p>
+
+          <div class="mt-[54px] flex flex-wrap items-start gap-x-[82px] sm:gap-x-[100px] gap-y-10 type-small">
+            <nav aria-labelledby="footer-recursos" class="grid gap-3">
+              <h3 id="footer-recursos" class="font-medium text-neutral-400">Recursos</h3>
+              <a href="#" class="font-medium hover:underline">Blog</a>
+              <a href="eventos/index.html" class="font-medium hover:underline">Eventos</a>
+              <a href="#" class="font-medium hover:underline">Produtos</a>
+            </nav>
+
+            <nav aria-labelledby="footer-empresa" class="grid gap-3">
+              <h3 id="footer-empresa" class="font-medium text-neutral-400">Empresa</h3>
+              <a href="sobre/index.html" class="font-medium hover:underline">Sobre nós</a>
+              <a href="#" class="font-medium hover:underline">Carreiras</a>
+              <a href="ajuda/index.html#contato" class="font-medium hover:underline">Contato</a>
+            </nav>
+
+            <nav aria-labelledby="footer-legal" class="grid gap-3">
+              <h3 id="footer-legal" class="font-medium text-neutral-400">Legal</h3>
+              <a href="legal/termos-de-uso.html" class="font-medium hover:underline">Termos & condições</a>
+              <a href="legal/politica-de-privacidade.html" class="font-medium hover:underline">Políticas de privacidade</a>
+              <a href="legal/cookies.html" class="font-medium hover:underline">Preferências de Cookies</a>
+            </nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="h-px bg-hc-line"></div>
+      <p class="pt-[36px] type-small font-medium text-neutral-400">
+        2026 Hora de Correr © Todos os direitos reservados.
+      </p>
+    </div>
+  </div>
+</footer>
+
+  <script>
+    lucide.createIcons({ attrs: { 'stroke-width': 1.8 } });
+
+    const searchForm = document.getElementById('searchForm');
+    const searchInput = document.getElementById('searchInput');
+    const cards = [...document.querySelectorAll('.event-card')];
+    const emptySearch = document.getElementById('emptySearch');
+    const resultCount = document.getElementById('resultCount');
+    const clearSearch = document.getElementById('clearSearch');
+    const cityFilter = document.getElementById('cityFilter');
+    const distanceFilter = document.getElementById('distanceFilter');
+    const statusButtons = [...document.querySelectorAll('[data-status].filter-chip')];
+
+    let activeStatus = 'available';
+
+    function normalize(value) {
+      return (value || '')
+        .toLowerCase()
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .trim();
+    }
+
+    function applyFilters() {
+      const q = normalize(searchInput.value);
+      const city = normalize(cityFilter.value);
+      const distance = normalize(distanceFilter.value);
+      let visible = 0;
+
+      cards.forEach(card => {
+        const matchesText = !q || normalize(card.dataset.search).includes(q);
+        const isClosed = card.dataset.status === 'closed';
+        const hasSearch = q.length > 0;
+        const matchesStatus =
+          activeStatus === 'closed'
+            ? isClosed
+            : activeStatus === 'available'
+              ? (!isClosed || (hasSearch && matchesText))
+              : card.dataset.status === activeStatus;
+
+        const matchesCity = city === 'all' || normalize(card.dataset.city) === city;
+        const matchesDistance = distance === 'all' || normalize(card.dataset.distance).includes(distance);
+
+        const show = matchesText && matchesStatus && matchesCity && matchesDistance;
+        card.classList.toggle('hidden', !show);
+        if (show) visible++;
+      });
+
+      resultCount.textContent = visible;
+      emptySearch.classList.toggle('hidden', visible > 0);
+    }
+
+    searchForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+      applyFilters();
+      document.getElementById('eventos').scrollIntoView({ behavior: 'smooth' });
+    });
+
+    document.querySelectorAll('.quick-search').forEach(button => {
+      button.addEventListener('click', () => {
+        searchInput.value = button.dataset.query;
+        applyFilters();
+        document.getElementById('eventos').scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+
+    statusButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        activeStatus = button.dataset.status;
+        statusButtons.forEach(item => item.setAttribute('aria-pressed', String(item === button)));
+        applyFilters();
+      });
+    });
+
+    cityFilter.addEventListener('change', applyFilters);
+    distanceFilter.addEventListener('change', applyFilters);
+
+    document.getElementById('moreFiltersBtn').addEventListener('click', (event) => {
+      const panel = document.getElementById('moreFilters');
+      const open = panel.classList.toggle('hidden') === false;
+      event.currentTarget.setAttribute('aria-expanded', String(open));
+    });
+
+    function resetFilters() {
+      searchInput.value = '';
+      cityFilter.value = 'all';
+      distanceFilter.value = 'all';
+      activeStatus = 'available';
+      statusButtons.forEach(item => item.setAttribute('aria-pressed', String(item.dataset.status === 'available')));
+      applyFilters();
+    }
+
+    document.getElementById('clearFilters').addEventListener('click', resetFilters);
+    clearSearch.addEventListener('click', resetFilters);
+  </script>
+  <script src="assets/hc-shell.js"></script>
+</body>
+</html>

@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Central de ajuda — Hora de Correr</title>
+  <meta name="description" content="Encontre respostas sobre inscrições, pagamentos, eventos, resultados e entre em contato com o Hora de Correr.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config={
+      theme:{
+        extend:{
+          colors:{hc:{orange:'#E96F2B',orangeStrong:'#F56F18',orangeSoft:'#FFF1E8',ink:'#171717',weak:'#F7F7F7',line:'#E6E6E6'}},
+          fontFamily:{sans:['Inter','system-ui','sans-serif']}
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
+  <link rel="stylesheet" href="../assets/hc-ui.css">
+</head>
+<body class="font-sans text-hc-ink bg-white">
+<header class="sticky top-0 z-50 bg-white/95 backdrop-blur-xl border-b border-hc-line">
+  <nav aria-label="Navegação principal" class="px-5 sm:px-8 lg:px-11 py-4 lg:py-5 flex items-center gap-6">
+    <a href="../index.html" class="focus-ring rounded-md shrink-0" aria-label="Hora de Correr, página inicial">
+      <img src="../assets/logo-header.png" alt="Hora de Correr" class="w-[146px] sm:w-[156px] h-auto">
+    </a>
+
+    <div class="flex-1"></div>
+
+    <div class="hidden md:flex items-center gap-4" role="list">
+      <a href="../index.html#inscricoes" class="hc-header-link px-2.5 py-1.5 rounded-[10px] inline-flex items-center gap-1.5 text-sm font-medium text-neutral-600" role="listitem">
+        <i data-lucide="ticket" class="w-5 h-5 hc-icon" aria-hidden="true"></i>
+        <span>Minhas Inscrições</span>
+      </a>
+
+      <a href="../index.html#eventos" class="hc-header-link px-2.5 py-1.5 rounded-[10px] inline-flex items-center gap-1.5 text-sm font-medium text-neutral-600" role="listitem">
+        <i data-lucide="calendar-days" class="w-5 h-5 hc-icon" aria-hidden="true"></i>
+        <span>Meus eventos</span>
+      </a>
+
+      <div class="relative ml-1">
+        <button id="profileMenuButton" type="button" class="focus-ring pl-1 pr-2 py-1 bg-white rounded-full border border-hc-line inline-flex items-center gap-1.5" aria-haspopup="menu" aria-expanded="false" aria-label="Abrir menu da conta">
+          <span class="w-8 h-8 rounded-full bg-neutral-200 grid place-items-center overflow-hidden">
+            <i data-lucide="circle-user-round" class="w-7 h-7 text-neutral-400" aria-hidden="true"></i>
+          </span>
+          <i data-lucide="chevron-down" class="w-5 h-5 hc-icon" aria-hidden="true"></i>
+        </button>
+        <div id="profileMenu" role="menu" class="hidden absolute right-0 mt-2 w-48 rounded-xl border border-hc-line bg-white p-1.5 shadow-[0_12px_32px_rgba(0,0,0,.08)]">
+          <a role="menuitem" href="#" class="block rounded-lg px-3 py-2.5 text-sm hover:bg-hc-weak">Minha conta</a>
+          <a role="menuitem" href="../ajuda/index.html" class="block rounded-lg px-3 py-2.5 text-sm hover:bg-hc-weak">Central de ajuda</a>
+        </div>
+      </div>
+    </div>
+
+    <button id="mobileMenuButton" type="button" class="md:hidden focus-ring w-11 h-11 rounded-full border border-hc-line grid place-items-center" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobileMenu">
+      <i data-lucide="menu" class="w-5 h-5 hc-icon" aria-hidden="true"></i>
+    </button>
+  </nav>
+
+  <div id="mobileMenu" class="hidden md:hidden border-t border-hc-line bg-white px-5 py-3">
+    <nav aria-label="Navegação mobile" class="grid">
+      <a href="../index.html#inscricoes" class="py-3 flex items-center gap-3 text-sm font-medium"><i data-lucide="ticket" class="w-5 h-5 hc-icon"></i>Minhas Inscrições</a>
+      <a href="../index.html#eventos" class="py-3 flex items-center gap-3 text-sm font-medium"><i data-lucide="calendar-days" class="w-5 h-5 hc-icon"></i>Meus eventos</a>
+      <a href="../ajuda/index.html" class="py-3 flex items-center gap-3 text-sm font-medium"><i data-lucide="circle-help" class="w-5 h-5 hc-icon"></i>Central de ajuda</a>
+    </nav>
+  </div>
+</header>
+<main>
+  <section class="px-5 sm:px-8 bg-[linear-gradient(180deg,#fff_0%,#fbfbfa_100%)]">
+    <div class="mx-auto max-w-[1216px] py-16 sm:py-20">
+      <nav aria-label="Breadcrumb" class="type-small text-neutral-500 flex items-center gap-2">
+        <a href="../index.html">Início</a><i data-lucide="chevron-right" class="w-3.5 h-3.5 hc-icon"></i><span>Central de ajuda</span>
+      </nav>
+      <div class="mt-10 max-w-[820px]">
+        <div class="inline-flex rounded-[9px] bg-white border border-black/[.04] px-2.5 py-1 type-small text-neutral-600">Ajuda</div>
+        <h1 class="type-page mt-4 font-medium">Como podemos ajudar?</h1>
+        <p class="type-body mt-5 text-neutral-600 max-w-[700px]">Encontre respostas sobre sua inscrição, pagamento, evento e resultados. Se precisar, fale com a gente nesta mesma página.</p>
+      </div>
+
+      <form id="helpSearchForm" class="mt-8 max-w-[760px]" role="search">
+        <label class="hc-control min-h-[58px] rounded-[12px] border border-hc-line bg-white px-4 flex items-center gap-3 focus-within:border-neutral-400">
+          <i data-lucide="search" class="w-5 h-5 hc-icon"></i>
+          <span class="sr-only">Buscar na Central de ajuda</span>
+          <input id="helpSearch" type="search" class="w-full outline-none bg-transparent type-meta" placeholder="Digite sua dúvida">
+        </label>
+      </form>
+    </div>
+  </section>
+
+  <section class="px-5 sm:px-8">
+    <div class="mx-auto max-w-[1216px] py-14 sm:py-16">
+      <h2 class="type-section font-medium">Assuntos</h2>
+      <div class="mt-7 grid sm:grid-cols-2 lg:grid-cols-3 border-t border-hc-line">
+        <a href="#perguntas" class="hc-card py-6 lg:pr-8 border-b lg:border-r border-hc-line flex gap-4">
+          <i data-lucide="ticket" class="w-5 h-5 hc-icon mt-1"></i><div><h3 class="font-semibold">Inscrições</h3><p class="type-small mt-2 text-neutral-600">Cadastro, titularidade, dados e acompanhamento.</p></div>
+        </a>
+        <a href="../legal/politica-de-reembolso.html" class="hc-card py-6 lg:px-8 border-b lg:border-r border-hc-line flex gap-4">
+          <i data-lucide="credit-card" class="w-5 h-5 hc-icon mt-1"></i><div><h3 class="font-semibold">Pagamentos e reembolsos</h3><p class="type-small mt-2 text-neutral-600">Pagamento, cancelamento e prazos de estorno.</p></div>
+        </a>
+        <a href="#perguntas" class="hc-card py-6 lg:pl-8 border-b border-hc-line flex gap-4">
+          <i data-lucide="flag" class="w-5 h-5 hc-icon mt-1"></i><div><h3 class="font-semibold">Dia da prova</h3><p class="type-small mt-2 text-neutral-600">Kit, horário, percurso e orientações do evento.</p></div>
+        </a>
+        <a href="../index.html#resultados" class="hc-card py-6 lg:pr-8 border-b lg:border-r border-hc-line flex gap-4">
+          <i data-lucide="medal" class="w-5 h-5 hc-icon mt-1"></i><div><h3 class="font-semibold">Resultados</h3><p class="type-small mt-2 text-neutral-600">Pesquisa e consulta dos resultados publicados.</p></div>
+        </a>
+        <a href="../legal/politica-de-privacidade.html" class="hc-card py-6 lg:px-8 border-b lg:border-r border-hc-line flex gap-4">
+          <i data-lucide="shield-check" class="w-5 h-5 hc-icon mt-1"></i><div><h3 class="font-semibold">Privacidade</h3><p class="type-small mt-2 text-neutral-600">Dados pessoais, direitos e preferências.</p></div>
+        </a>
+        <a href="#contato" class="hc-card py-6 lg:pl-8 border-b border-hc-line flex gap-4">
+          <i data-lucide="message-circle" class="w-5 h-5 hc-icon mt-1"></i><div><h3 class="font-semibold">Falar com o suporte</h3><p class="type-small mt-2 text-neutral-600">Envie sua dúvida para nossa equipe.</p></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="perguntas" class="px-5 sm:px-8 bg-[#FAFAFA]">
+    <div class="mx-auto max-w-[960px] py-14 sm:py-16">
+      <div class="text-center">
+        <div class="type-small text-neutral-500">Dúvidas comuns</div>
+        <h2 class="type-section mt-2 font-medium">Respostas rápidas</h2>
+      </div>
+      <div id="faqList" class="mt-8 border-t border-hc-line"><details class="help-faq border-b border-hc-line group">
+      <summary class="cursor-pointer list-none py-5 flex items-center justify-between gap-5">
+        <span class="font-medium">Como encontro uma corrida?</span>
+        <i data-lucide="plus" class="faq-plus w-5 h-5 hc-icon shrink-0"></i>
+      </summary>
+      <div class="pb-5 pr-10 type-meta text-neutral-600">Use a busca da página inicial ou os filtros do catálogo. Você pode procurar por nome do evento, cidade, distância e status.</div>
+    </details><details class="help-faq border-b border-hc-line group">
+      <summary class="cursor-pointer list-none py-5 flex items-center justify-between gap-5">
+        <span class="font-medium">Onde acompanho uma inscrição que já fiz?</span>
+        <i data-lucide="plus" class="faq-plus w-5 h-5 hc-icon shrink-0"></i>
+      </summary>
+      <div class="pb-5 pr-10 type-meta text-neutral-600">Acesse Minhas Inscrições no topo da página. Ali ficam o status da inscrição e as informações que passam a ser importantes ao longo da jornada da prova.</div>
+    </details><details class="help-faq border-b border-hc-line group">
+      <summary class="cursor-pointer list-none py-5 flex items-center justify-between gap-5">
+        <span class="font-medium">Como funciona cancelamento e reembolso?</span>
+        <i data-lucide="plus" class="faq-plus w-5 h-5 hc-icon shrink-0"></i>
+      </summary>
+      <div class="pb-5 pr-10 type-meta text-neutral-600">As regras variam conforme o prazo da compra e o regulamento do evento. A política completa está disponível na área Legal. <a href="../legal/politica-de-reembolso.html" class="font-semibold underline underline-offset-4">Ver política completa</a>.</div>
+    </details><details class="help-faq border-b border-hc-line group">
+      <summary class="cursor-pointer list-none py-5 flex items-center justify-between gap-5">
+        <span class="font-medium">Onde encontro meu resultado?</span>
+        <i data-lucide="plus" class="faq-plus w-5 h-5 hc-icon shrink-0"></i>
+      </summary>
+      <div class="pb-5 pr-10 type-meta text-neutral-600">Use a área de Resultados na página inicial e pesquise pelo evento ou atleta. Quando o resultado estiver disponível, ele poderá ser consultado por ali.</div>
+    </details><details class="help-faq border-b border-hc-line group">
+      <summary class="cursor-pointer list-none py-5 flex items-center justify-between gap-5">
+        <span class="font-medium">Como altero meus dados?</span>
+        <i data-lucide="plus" class="faq-plus w-5 h-5 hc-icon shrink-0"></i>
+      </summary>
+      <div class="pb-5 pr-10 type-meta text-neutral-600">As informações de conta ficam na sua área pessoal. Dados específicos de uma inscrição podem depender das regras do evento.</div>
+    </details><details class="help-faq border-b border-hc-line group">
+      <summary class="cursor-pointer list-none py-5 flex items-center justify-between gap-5">
+        <span class="font-medium">Como falar com o suporte?</span>
+        <i data-lucide="plus" class="faq-plus w-5 h-5 hc-icon shrink-0"></i>
+      </summary>
+      <div class="pb-5 pr-10 type-meta text-neutral-600">Use o formulário de contato nesta mesma página. Inclua o nome do evento quando a dúvida estiver relacionada a uma corrida.</div>
+    </details></div>
+      <p id="helpEmpty" class="hidden mt-8 text-center type-meta text-neutral-500">Nenhuma resposta corresponde a essa busca.</p>
+    </div>
+  </section>
+
+  <section id="contato" class="px-5 sm:px-8">
+    <div class="mx-auto max-w-[1216px] py-16 sm:py-20 grid lg:grid-cols-[.75fr_1.25fr] gap-12 lg:gap-20">
+      <div>
+        <div class="type-small text-neutral-500">Contato</div>
+        <h2 class="type-section mt-3 font-medium">Ainda precisa de ajuda?</h2>
+        <p class="type-body mt-4 text-neutral-600 max-w-[480px]">Conte o que aconteceu e, quando a dúvida for sobre uma corrida, informe também o nome do evento. Isso ajuda a equipe a entender o contexto mais rápido.</p>
+      </div>
+      <form id="contactForm" class="grid sm:grid-cols-2 gap-4" novalidate>
+        <label class="grid gap-2"><span class="type-small font-medium">Nome</span><input required class="h-12 rounded-[10px] border border-hc-line px-3 outline-none focus:border-neutral-400" type="text"></label>
+        <label class="grid gap-2"><span class="type-small font-medium">E-mail</span><input required class="h-12 rounded-[10px] border border-hc-line px-3 outline-none focus:border-neutral-400" type="email"></label>
+        <label class="grid gap-2 sm:col-span-2"><span class="type-small font-medium">Evento, se houver</span><input class="h-12 rounded-[10px] border border-hc-line px-3 outline-none focus:border-neutral-400" type="text"></label>
+        <label class="grid gap-2 sm:col-span-2"><span class="type-small font-medium">Como podemos ajudar?</span><textarea required rows="5" class="rounded-[10px] border border-hc-line p-3 outline-none focus:border-neutral-400 resize-y"></textarea></label>
+        <div class="sm:col-span-2 flex items-center gap-4">
+          <button type="submit" class="h-11 rounded-[9px] bg-hc-ink text-white px-5 type-small font-semibold hover:bg-neutral-800 transition-colors">Enviar mensagem</button>
+          <span id="contactStatus" class="hidden type-small text-neutral-600" role="status">Mensagem registrada nesta demonstração.</span>
+        </div>
+      </form>
+    </div>
+  </section>
+</main>
+<footer class="hc-footer bg-white overflow-hidden">
+  <div class="relative mx-auto max-w-[1540px] px-5 sm:px-8 lg:px-0 pt-[72px] sm:pt-[88px] pb-[42px]">
+    <div class="relative z-10">
+      <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-9">
+        <h2 class="text-[clamp(2.45rem,2.9vw,3.55rem)] leading-[1.08] tracking-[-.04em] font-medium">
+          Vamos começar<br>a criar, juntos
+        </h2>
+        <a href="../eventos/index.html" class="mt-2 inline-flex self-start items-center gap-2 text-[clamp(1.15rem,1.15vw,1.45rem)] leading-8 font-semibold underline underline-offset-[5px] hover:text-hc-orangeStrong transition-colors">
+          Mais eventos
+          <i data-lucide="arrow-up-right" class="w-5 h-5 hc-icon" aria-hidden="true"></i>
+        </a>
+      </div>
+
+      <div class="mt-[46px] h-px bg-hc-line"></div>
+
+      <div class="relative pt-[48px] min-h-[316px]">
+        <div aria-hidden="true" class="hc-footer-word-approved">Correr</div>
+
+        <div class="relative z-10">
+          <img src="../assets/logo-header.png" alt="Hora de Correr" class="w-[218px] h-auto">
+          <p class="mt-4 type-meta font-medium text-neutral-600">
+            Ferramentas mais inteligentes para quem faz corridas.
+          </p>
+
+          <div class="mt-[54px] flex flex-wrap items-start gap-x-[82px] sm:gap-x-[100px] gap-y-10 type-small">
+            <nav aria-labelledby="footer-recursos" class="grid gap-3">
+              <h3 id="footer-recursos" class="font-medium text-neutral-400">Recursos</h3>
+              <a href="#" class="font-medium hover:underline">Blog</a>
+              <a href="../eventos/index.html" class="font-medium hover:underline">Eventos</a>
+              <a href="#" class="font-medium hover:underline">Produtos</a>
+            </nav>
+
+            <nav aria-labelledby="footer-empresa" class="grid gap-3">
+              <h3 id="footer-empresa" class="font-medium text-neutral-400">Empresa</h3>
+              <a href="../sobre/index.html" class="font-medium hover:underline">Sobre nós</a>
+              <a href="#" class="font-medium hover:underline">Carreiras</a>
+              <a href="../ajuda/index.html#contato" class="font-medium hover:underline">Contato</a>
+            </nav>
+
+            <nav aria-labelledby="footer-legal" class="grid gap-3">
+              <h3 id="footer-legal" class="font-medium text-neutral-400">Legal</h3>
+              <a href="../legal/termos-de-uso.html" class="font-medium hover:underline">Termos & condições</a>
+              <a href="../legal/politica-de-privacidade.html" class="font-medium hover:underline">Políticas de privacidade</a>
+              <a href="../legal/cookies.html" class="font-medium hover:underline">Preferências de Cookies</a>
+            </nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="h-px bg-hc-line"></div>
+      <p class="pt-[36px] type-small font-medium text-neutral-400">
+        2026 Hora de Correr © Todos os direitos reservados.
+      </p>
+    </div>
+  </div>
+</footer>
+<script src="../assets/hc-shell.js"></script>
+<script>
+  const helpSearch=document.getElementById('helpSearch');
+  const faqs=[...document.querySelectorAll('.help-faq')];
+  const empty=document.getElementById('helpEmpty');
+  function normalize(v){return (v||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');}
+  helpSearch.addEventListener('input',()=>{
+    const q=normalize(helpSearch.value);
+    let visible=0;
+    faqs.forEach(item=>{const show=!q||normalize(item.textContent).includes(q);item.classList.toggle('hidden',!show);if(show)visible++;});
+    empty.classList.toggle('hidden',visible>0);
+  });
+  document.getElementById('contactForm').addEventListener('submit',(e)=>{
+    e.preventDefault();
+    if(!e.currentTarget.reportValidity())return;
+    document.getElementById('contactStatus').classList.remove('hidden');
+  });
+</script>
+</body></html>

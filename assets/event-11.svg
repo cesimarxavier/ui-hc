@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="900" viewBox="0 0 900 900">
+    <rect width="900" height="900" rx="18" fill="#EEE9DF"/>
+    <circle cx="760" cy="120" r="220" fill="#212121" opacity=".20"/>
+    <circle cx="810" cy="80" r="125" fill="#212121" opacity=".34"/>
+    <path d="M-30 680 C190 520 380 790 930 540" stroke="#212121" stroke-width="22" fill="none" opacity=".32"/>
+    <path d="M-40 730 C240 560 450 820 940 620" stroke="#212121" stroke-width="8" fill="none" opacity=".62"/>
+    <rect x="68" y="62" width="156" height="44" rx="22" fill="#212121"/>
+    <text x="146" y="91" fill="#EEE9DF" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="20" font-weight="700">HORA DE CORRER</text>
+    <text x="68" y="210" fill="#171717" font-family="Arial,Helvetica,sans-serif" font-size="34" font-weight="700">20 SET</text>
+    <text x="68" y="270" fill="#5C5C5C" opacity=".82" font-family="Arial,Helvetica,sans-serif" font-size="26">NATAL · RN</text>
+    <text x="68" y="450" fill="#171717" font-family="Arial,Helvetica,sans-serif" font-size="68" font-weight="800">NATAL</text>
+    <text x="68" y="522" fill="#171717" font-family="Arial,Helvetica,sans-serif" font-size="68" font-weight="800">NIGHT RUN</text>
+    <text x="68" y="790" fill="#171717" font-family="Arial,Helvetica,sans-serif" font-size="30" font-weight="700">5K  ·  10K</text>
+    <rect x="68" y="820" width="265" height="10" rx="5" fill="#212121"/>
+    </svg>

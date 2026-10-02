@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Sobre o Hora de Correr</title>
+  <meta name="description" content="Conheça a experiência em corrida e tecnologia por trás do Hora de Correr.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config={theme:{extend:{
+      colors:{hc:{orange:'#E96F2B',orangeStrong:'#F56F18',orangeSoft:'#FFF1E8',ink:'#171717',weak:'#F7F7F7',line:'#E6E6E6'}},
+      fontFamily:{sans:['Inter','system-ui','sans-serif']}
+    }}}
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
+  <link rel="stylesheet" href="../assets/hc-ui.css">
+</head>
+<body class="font-sans text-hc-ink bg-white">
+<header class="sticky top-0 z-50 bg-white/95 backdrop-blur-xl border-b border-hc-line">
+  <nav aria-label="Navegação principal" class="px-5 sm:px-8 lg:px-11 py-4 lg:py-5 flex items-center gap-6">
+    <a href="../index.html" class="focus-ring rounded-md shrink-0" aria-label="Hora de Correr, página inicial"><img src="../assets/logo-header.png" alt="Hora de Correr" class="w-[146px] sm:w-[156px] h-auto"></a>
+    <div class="flex-1"></div>
+    <div class="hidden md:flex items-center gap-4">
+      <a href="../index.html#inscricoes" class="hc-header-link px-2.5 py-1.5 rounded-[10px] inline-flex items-center gap-1.5 text-sm font-medium text-neutral-600"><i data-lucide="ticket" class="w-5 h-5 hc-icon"></i><span>Minhas Inscrições</span></a>
+      <a href="../index.html#eventos" class="hc-header-link px-2.5 py-1.5 rounded-[10px] inline-flex items-center gap-1.5 text-sm font-medium text-neutral-600"><i data-lucide="calendar-days" class="w-5 h-5 hc-icon"></i><span>Meus eventos</span></a>
+      <div class="relative ml-1">
+        <button id="profileMenuButton" class="focus-ring pl-1 pr-2 py-1 bg-white rounded-full border border-hc-line inline-flex items-center gap-1.5" aria-haspopup="menu" aria-expanded="false" aria-label="Abrir menu da conta"><span class="w-8 h-8 rounded-full bg-neutral-200 grid place-items-center"><i data-lucide="circle-user-round" class="w-7 h-7 text-neutral-400"></i></span><i data-lucide="chevron-down" class="w-5 h-5 hc-icon"></i></button>
+        <div id="profileMenu" role="menu" class="hidden absolute right-0 mt-2 w-48 rounded-xl border border-hc-line bg-white p-1.5 shadow-[0_12px_32px_rgba(0,0,0,.08)]"><a role="menuitem" href="#" class="block rounded-lg px-3 py-2.5 text-sm hover:bg-hc-weak">Minha conta</a><a role="menuitem" href="../ajuda/index.html" class="block rounded-lg px-3 py-2.5 text-sm hover:bg-hc-weak">Central de ajuda</a></div>
+      </div>
+    </div>
+    <button id="mobileMenuButton" class="md:hidden focus-ring w-11 h-11 rounded-full border border-hc-line grid place-items-center" aria-label="Abrir menu" aria-expanded="false"><i data-lucide="menu" class="w-5 h-5 hc-icon"></i></button>
+  </nav>
+  <div id="mobileMenu" class="hidden md:hidden border-t border-hc-line bg-white px-5 py-3"><nav class="grid"><a href="../index.html#inscricoes" class="py-3 text-sm font-medium">Minhas Inscrições</a><a href="../index.html#eventos" class="py-3 text-sm font-medium">Meus eventos</a><a href="../ajuda/index.html" class="py-3 text-sm font-medium">Central de ajuda</a></nav></div>
+</header>
+
+<main>
+  <section class="px-5 sm:px-8 bg-[linear-gradient(180deg,#fff_0%,#fbfbfa_100%)]">
+    <div class="mx-auto max-w-[1260px] pt-14 sm:pt-16 pb-16 sm:pb-20">
+      <nav aria-label="Breadcrumb" class="type-small text-neutral-500 flex items-center gap-2"><a href="../index.html">Início</a><i data-lucide="chevron-right" class="w-3.5 h-3.5 hc-icon"></i><span>Sobre nós</span></nav>
+
+      <div class="mt-10 grid lg:grid-cols-[1.08fr_.92fr] gap-12 lg:gap-20 items-end">
+        <div>
+          <div class="inline-flex rounded-[9px] bg-white border border-black/[.04] px-2.5 py-1 type-small text-neutral-600">Sobre o Hora de Correr</div>
+          <h1 class="type-page mt-4 font-medium max-w-[760px]">Corrida por dentro. Tecnologia para acompanhar cada passo.</h1>
+          <p class="type-body mt-5 text-neutral-600 max-w-[720px]">
+            O Hora de Correr nasce do encontro entre quem conhece uma prova no mundo real e quem sabe transformar jornadas complexas em produtos digitais simples de usar.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <img src="../assets/event-4.jpg" alt="Meia Maratona PRF" class="aspect-square w-full rounded-[8px] object-cover">
+          <img src="../assets/event-3.jpg" alt="Corrida Coopanest" class="aspect-square w-full rounded-[8px] object-cover mt-8">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="px-5 sm:px-8">
+    <div class="mx-auto max-w-[1260px] py-14 sm:py-16 border-t border-hc-line">
+      <div class="grid lg:grid-cols-[.78fr_1.22fr] gap-12 lg:gap-24">
+        <div>
+          <div class="type-small text-neutral-500">De onde viemos</div>
+          <h2 class="type-section mt-3 font-medium">A pista e o produto digital se encontram aqui</h2>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-3">
+          <article class="rounded-[14px] border border-hc-line p-6 bg-white">
+            <div class="flex items-center gap-2 type-small text-neutral-500"><i data-lucide="flag" class="w-4 h-4 hc-icon"></i>Experiência em eventos</div>
+            <h3 class="mt-7 text-[1.35rem] leading-7 font-semibold">HC Sports</h3>
+            <p class="type-meta mt-3 text-neutral-600">
+              Há 15 anos produzindo e promovendo eventos esportivos. O portfólio reúne mais de 150 eventos realizados e mais de 200 mil atletas impactados, além da produção de provas como a Meia Maratona do Sol Sicredi.
+            </p>
+            <a href="https://hcsports.com.br/" target="_blank" rel="noopener noreferrer" class="mt-6 inline-flex items-center gap-2 type-small font-semibold">Conhecer a HC Sports <i data-lucide="arrow-up-right" class="w-4 h-4 hc-icon"></i></a>
+          </article>
+
+          <article class="rounded-[14px] border border-hc-line p-6 bg-white">
+            <div class="flex items-center gap-2 type-small text-neutral-500"><i data-lucide="code-2" class="w-4 h-4 hc-icon"></i>Produto e engenharia</div>
+            <h3 class="mt-7 text-[1.35rem] leading-7 font-semibold">Hyper Core Systems</h3>
+            <p class="type-meta mt-3 text-neutral-600">
+              A camada de tecnologia reúne desenvolvimento web e mobile, sistemas empresariais, arquitetura, consultoria e infraestrutura. No Hora de Correr, essa experiência é aplicada a produtos digitais pensados especificamente para o esporte.
+            </p>
+            <a href="https://www.hypercore.com.br/" target="_blank" rel="noopener noreferrer" class="mt-6 inline-flex items-center gap-2 type-small font-semibold">Conhecer a Hyper Core <i data-lucide="arrow-up-right" class="w-4 h-4 hc-icon"></i></a>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="px-5 sm:px-8 bg-[#FAFAFA]">
+    <div class="mx-auto max-w-[1260px] py-14 sm:py-16">
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-3">
+        <div class="p-5 sm:p-6 border-t border-neutral-300"><div class="text-[clamp(2rem,2vw,3rem)] font-semibold tracking-[-.04em]">15+</div><div class="type-small mt-2 text-neutral-500">anos de mercado da HC Sports</div></div>
+        <div class="p-5 sm:p-6 border-t border-neutral-300"><div class="text-[clamp(2rem,2vw,3rem)] font-semibold tracking-[-.04em]">150+</div><div class="type-small mt-2 text-neutral-500">eventos realizados</div></div>
+        <div class="p-5 sm:p-6 border-t border-neutral-300"><div class="text-[clamp(2rem,2vw,3rem)] font-semibold tracking-[-.04em]">200 mil+</div><div class="type-small mt-2 text-neutral-500">atletas impactados</div></div>
+        <div class="p-5 sm:p-6 border-t border-neutral-300"><div class="text-[clamp(2rem,2vw,3rem)] font-semibold tracking-[-.04em]">1</div><div class="type-small mt-2 text-neutral-500">ecossistema para quem vive corrida</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="px-5 sm:px-8">
+    <div class="mx-auto max-w-[1260px] py-16 sm:py-20">
+      <div class="grid lg:grid-cols-[.75fr_1.25fr] gap-12 lg:gap-24">
+        <div>
+          <div class="type-small text-neutral-500">Por que isso importa</div>
+          <h2 class="type-section mt-3 font-medium">A tecnologia precisa conhecer a corrida que está tentando organizar</h2>
+          <p class="type-body mt-5 text-neutral-600">
+            Uma inscrição não é só um formulário. Ela se conecta a lotes, categorias, descontos, documentos, kits, pagamentos, atendimento, largada, cronometragem e resultado.
+          </p>
+        </div>
+        <div class="border-t border-hc-line">
+          <div class="py-7 border-b border-hc-line grid grid-cols-[42px_1fr] gap-5"><i data-lucide="person-standing" class="w-5 h-5 hc-icon mt-1"></i><div><h3 class="font-semibold">Para quem corre</h3><p class="type-meta mt-2 text-neutral-600">Menos fricção para encontrar a prova, se inscrever e acompanhar o que realmente importa antes e depois da largada.</p></div></div>
+          <div class="py-7 border-b border-hc-line grid grid-cols-[42px_1fr] gap-5"><i data-lucide="building-2" class="w-5 h-5 hc-icon mt-1"></i><div><h3 class="font-semibold">Para quem produz</h3><p class="type-meta mt-2 text-neutral-600">Uma operação que conecta inscrição, atendimento, financeiro, comunicação e gestão sem perder o contexto do evento.</p></div></div>
+          <div class="py-7 border-b border-hc-line grid grid-cols-[42px_1fr] gap-5"><i data-lucide="network" class="w-5 h-5 hc-icon mt-1"></i><div><h3 class="font-semibold">Para o ecossistema</h3><p class="type-meta mt-2 text-neutral-600">Fornecedores, assessorias, cronometragem, patrocinadores e profissionais da área entram em uma plataforma desenhada para trabalhar com a realidade da corrida.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="px-5 sm:px-8 bg-[linear-gradient(180deg,#fff_0%,#fafafa_100%)]">
+    <div class="mx-auto max-w-[1260px] py-16 sm:py-20">
+      <div class="max-w-[860px]">
+        <div class="type-small text-neutral-500">Nossa missão</div>
+        <h2 class="type-section mt-3 font-medium">Criar um ecossistema inteligente sem tirar a corrida do centro</h2>
+        <p class="type-body mt-5 text-neutral-600">
+          Queremos que o atleta saiba que pode vir ao Hora de Correr para encontrar sua próxima prova e continuar acompanhado. Para quem trabalha com corrida, queremos construir uma infraestrutura digital que facilite a operação e deixe mais tempo para cuidar da experiência do evento.
+        </p>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a href="../eventos/index.html" class="h-11 rounded-[9px] bg-hc-ink text-white px-5 inline-flex items-center gap-2 type-small font-semibold">Encontrar uma corrida <i data-lucide="arrow-up-right" class="w-4 h-4"></i></a>
+          <a href="../ajuda/index.html" class="h-11 rounded-[9px] border border-hc-line px-5 inline-flex items-center gap-2 type-small font-semibold">Central de ajuda</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="hc-footer bg-white overflow-hidden">
+  <div class="relative mx-auto max-w-[1540px] px-5 sm:px-8 lg:px-0 pt-[72px] sm:pt-[88px] pb-[42px]">
+    <div class="relative z-10">
+      <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-9">
+        <h2 class="text-[clamp(2.45rem,2.9vw,3.55rem)] leading-[1.08] tracking-[-.04em] font-medium">
+          Vamos começar<br>a criar, juntos
+        </h2>
+        <a href="../eventos/index.html" class="mt-2 inline-flex self-start items-center gap-2 text-[clamp(1.15rem,1.15vw,1.45rem)] leading-8 font-semibold underline underline-offset-[5px] hover:text-hc-orangeStrong transition-colors">
+          Mais eventos
+          <i data-lucide="arrow-up-right" class="w-5 h-5 hc-icon" aria-hidden="true"></i>
+        </a>
+      </div>
+
+      <div class="mt-[46px] h-px bg-hc-line"></div>
+
+      <div class="relative pt-[48px] min-h-[316px]">
+        <div aria-hidden="true" class="hc-footer-word-approved">Correr</div>
+
+        <div class="relative z-10">
+          <img src="../assets/logo-header.png" alt="Hora de Correr" class="w-[218px] h-auto">
+          <p class="mt-4 type-meta font-medium text-neutral-600">
+            Ferramentas mais inteligentes para quem faz corridas.
+          </p>
+
+          <div class="mt-[54px] flex flex-wrap items-start gap-x-[82px] sm:gap-x-[100px] gap-y-10 type-small">
+            <nav aria-labelledby="footer-recursos" class="grid gap-3">
+              <h3 id="footer-recursos" class="font-medium text-neutral-400">Recursos</h3>
+              <a href="#" class="font-medium hover:underline">Blog</a>
+              <a href="../eventos/index.html" class="font-medium hover:underline">Eventos</a>
+              <a href="#" class="font-medium hover:underline">Produtos</a>
+            </nav>
+
+            <nav aria-labelledby="footer-empresa" class="grid gap-3">
+              <h3 id="footer-empresa" class="font-medium text-neutral-400">Empresa</h3>
+              <a href="../sobre/index.html" class="font-medium hover:underline">Sobre nós</a>
+              <a href="#" class="font-medium hover:underline">Carreiras</a>
+              <a href="../ajuda/index.html#contato" class="font-medium hover:underline">Contato</a>
+            </nav>
+
+            <nav aria-labelledby="footer-legal" class="grid gap-3">
+              <h3 id="footer-legal" class="font-medium text-neutral-400">Legal</h3>
+              <a href="../legal/termos-de-uso.html" class="font-medium hover:underline">Termos & condições</a>
+              <a href="../legal/politica-de-privacidade.html" class="font-medium hover:underline">Políticas de privacidade</a>
+              <a href="../legal/cookies.html" class="font-medium hover:underline">Preferências de Cookies</a>
+            </nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="h-px bg-hc-line"></div>
+      <p class="pt-[36px] type-small font-medium text-neutral-400">
+        2026 Hora de Correr © Todos os direitos reservados.
+      </p>
+    </div>
+  </div>
+</footer>
+<script src="../assets/hc-shell.js"></script>
+</body>
+</html>
